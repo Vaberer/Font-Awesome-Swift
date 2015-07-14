@@ -13,6 +13,9 @@
 		4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFACE1B53D5D7003CD25A /* Images.xcassets */; };
 		4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFAD01B53D5D7003CD25A /* LaunchScreen.xib */; };
 		4EFFFADE1B53D5D8003CD25A /* AF_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */; };
+		4EFFFAEC1B53ECB0003CD25A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */; };
+		4EFFFAF51B5503CA003CD25A /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAF41B5503CA003CD25A /* FAIcon.swift */; };
+		4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAF61B550DBD003CD25A /* IconCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,16 +29,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4EFFFAC21B53D5D7003CD25A /* AF Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AF Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EFFFAC21B53D5D7003CD25A /* FA Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FA Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFAC61B53D5D7003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4EFFFAC91B53D5D7003CD25A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4EFFFACC1B53D5D7003CD25A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4EFFFACE1B53D5D7003CD25A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4EFFFAD11B53D5D7003CD25A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		4EFFFAD71B53D5D8003CD25A /* AF SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AF SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EFFFAD71B53D5D8003CD25A /* FA SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FA SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFADC1B53D5D8003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AF_SwiftTests.swift; sourceTree = "<group>"; };
+		4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		4EFFFAF41B5503CA003CD25A /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		4EFFFAF61B550DBD003CD25A /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +65,8 @@
 		4EFFFAB91B53D5D7003CD25A = {
 			isa = PBXGroup;
 			children = (
-				4EFFFAC41B53D5D7003CD25A /* AF Swift */,
-				4EFFFADA1B53D5D8003CD25A /* AF SwiftTests */,
+				4EFFFAC41B53D5D7003CD25A /* FA Swift */,
+				4EFFFADA1B53D5D8003CD25A /* FA SwiftTests */,
 				4EFFFAC31B53D5D7003CD25A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,22 +74,22 @@
 		4EFFFAC31B53D5D7003CD25A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4EFFFAC21B53D5D7003CD25A /* AF Swift.app */,
-				4EFFFAD71B53D5D8003CD25A /* AF SwiftTests.xctest */,
+				4EFFFAC21B53D5D7003CD25A /* FA Swift.app */,
+				4EFFFAD71B53D5D8003CD25A /* FA SwiftTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4EFFFAC41B53D5D7003CD25A /* AF Swift */ = {
+		4EFFFAC41B53D5D7003CD25A /* FA Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */,
-				4EFFFAC91B53D5D7003CD25A /* ViewController.swift */,
+				4EFFFAF81B55200E003CD25A /* FA Swift */,
 				4EFFFACB1B53D5D7003CD25A /* Main.storyboard */,
-				4EFFFACE1B53D5D7003CD25A /* Images.xcassets */,
-				4EFFFAD01B53D5D7003CD25A /* LaunchScreen.xib */,
+				4EFFFAC91B53D5D7003CD25A /* ViewController.swift */,
+				4EFFFAF61B550DBD003CD25A /* IconCell.swift */,
 				4EFFFAC51B53D5D7003CD25A /* Supporting Files */,
 			);
+			name = "FA Swift";
 			path = "AF Swift";
 			sourceTree = "<group>";
 		};
@@ -91,16 +97,20 @@
 			isa = PBXGroup;
 			children = (
 				4EFFFAC61B53D5D7003CD25A /* Info.plist */,
+				4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */,
+				4EFFFACE1B53D5D7003CD25A /* Images.xcassets */,
+				4EFFFAD01B53D5D7003CD25A /* LaunchScreen.xib */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4EFFFADA1B53D5D8003CD25A /* AF SwiftTests */ = {
+		4EFFFADA1B53D5D8003CD25A /* FA SwiftTests */ = {
 			isa = PBXGroup;
 			children = (
 				4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */,
 				4EFFFADB1B53D5D8003CD25A /* Supporting Files */,
 			);
+			name = "FA SwiftTests";
 			path = "AF SwiftTests";
 			sourceTree = "<group>";
 		};
@@ -112,12 +122,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		4EFFFAF81B55200E003CD25A /* FA Swift */ = {
+			isa = PBXGroup;
+			children = (
+				4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */,
+				4EFFFAF41B5503CA003CD25A /* FAIcon.swift */,
+			);
+			name = "FA Swift";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4EFFFAC11B53D5D7003CD25A /* AF Swift */ = {
+		4EFFFAC11B53D5D7003CD25A /* FA Swift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EFFFAE11B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "AF Swift" */;
+			buildConfigurationList = 4EFFFAE11B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "FA Swift" */;
 			buildPhases = (
 				4EFFFABE1B53D5D7003CD25A /* Sources */,
 				4EFFFABF1B53D5D7003CD25A /* Frameworks */,
@@ -127,14 +146,14 @@
 			);
 			dependencies = (
 			);
-			name = "AF Swift";
+			name = "FA Swift";
 			productName = "AF Swift";
-			productReference = 4EFFFAC21B53D5D7003CD25A /* AF Swift.app */;
+			productReference = 4EFFFAC21B53D5D7003CD25A /* FA Swift.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4EFFFAD61B53D5D8003CD25A /* AF SwiftTests */ = {
+		4EFFFAD61B53D5D8003CD25A /* FA SwiftTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4EFFFAE41B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "AF SwiftTests" */;
+			buildConfigurationList = 4EFFFAE41B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "FA SwiftTests" */;
 			buildPhases = (
 				4EFFFAD31B53D5D8003CD25A /* Sources */,
 				4EFFFAD41B53D5D8003CD25A /* Frameworks */,
@@ -145,9 +164,9 @@
 			dependencies = (
 				4EFFFAD91B53D5D8003CD25A /* PBXTargetDependency */,
 			);
-			name = "AF SwiftTests";
+			name = "FA SwiftTests";
 			productName = "AF SwiftTests";
-			productReference = 4EFFFAD71B53D5D8003CD25A /* AF SwiftTests.xctest */;
+			productReference = 4EFFFAD71B53D5D8003CD25A /* FA SwiftTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -168,7 +187,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4EFFFABD1B53D5D7003CD25A /* Build configuration list for PBXProject "AF Swift" */;
+			buildConfigurationList = 4EFFFABD1B53D5D7003CD25A /* Build configuration list for PBXProject "FA Swift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -181,8 +200,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4EFFFAC11B53D5D7003CD25A /* AF Swift */,
-				4EFFFAD61B53D5D8003CD25A /* AF SwiftTests */,
+				4EFFFAC11B53D5D7003CD25A /* FA Swift */,
+				4EFFFAD61B53D5D8003CD25A /* FA SwiftTests */,
 			);
 		};
 /* End PBXProject section */
@@ -193,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */,
+				4EFFFAEC1B53ECB0003CD25A /* FontAwesome.ttf in Resources */,
 				4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */,
 				4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */,
 			);
@@ -213,7 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */,
+				4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */,
 				4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */,
+				4EFFFAF51B5503CA003CD25A /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +252,7 @@
 /* Begin PBXTargetDependency section */
 		4EFFFAD91B53D5D8003CD25A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4EFFFAC11B53D5D7003CD25A /* AF Swift */;
+			target = 4EFFFAC11B53D5D7003CD25A /* FA Swift */;
 			targetProxy = 4EFFFAD81B53D5D8003CD25A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -343,8 +365,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AF Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FA Swift";
 			};
 			name = Debug;
 		};
@@ -353,8 +376,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "AF Swift/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FA Swift";
 			};
 			name = Release;
 		};
@@ -372,7 +396,7 @@
 				);
 				INFOPLIST_FILE = "AF SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FA SwiftTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AF Swift.app/AF Swift";
 			};
 			name = Debug;
@@ -387,7 +411,7 @@
 				);
 				INFOPLIST_FILE = "AF SwiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "FA SwiftTests";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AF Swift.app/AF Swift";
 			};
 			name = Release;
@@ -395,7 +419,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4EFFFABD1B53D5D7003CD25A /* Build configuration list for PBXProject "AF Swift" */ = {
+		4EFFFABD1B53D5D7003CD25A /* Build configuration list for PBXProject "FA Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EFFFADF1B53D5D8003CD25A /* Debug */,
@@ -404,7 +428,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4EFFFAE11B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "AF Swift" */ = {
+		4EFFFAE11B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "FA Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EFFFAE21B53D5D8003CD25A /* Debug */,
@@ -412,7 +436,7 @@
 			);
 			defaultConfigurationIsVisible = 0;
 		};
-		4EFFFAE41B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "AF SwiftTests" */ = {
+		4EFFFAE41B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "FA SwiftTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4EFFFAE51B53D5D8003CD25A /* Debug */,
