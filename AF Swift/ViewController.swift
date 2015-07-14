@@ -48,6 +48,13 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUp
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
         
+        
+
+        let barName = UIBarButtonItem()
+
+        barName.FAIcon = FAType.FAGithub
+        barName.setFAIcon(FAType.FAGithub, iconSize: 35)
+        
         return c
     }
     
