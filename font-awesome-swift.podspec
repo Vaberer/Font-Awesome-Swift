@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name = 'Font Awesome Swift'
+  s.name = 'Font-Awesome-Swift'
   s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'Font Awesome swift library for iOS.'
