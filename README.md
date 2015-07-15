@@ -3,6 +3,8 @@
 
 Follow me: [@vaberer](https://twitter.com/vaberer)
 
+I like &#9733;. Do not forget to &#9733; this super convenient library.
+
 Font Awesome swift library for iOS. No image icons any more. Using Font Awesome Swift library is very easy to use. Look at the demo app which shows all icons and their names or just visit [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/).
 <br/><br/>
 <p align="center">
