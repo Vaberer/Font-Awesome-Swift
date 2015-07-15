@@ -4,7 +4,7 @@ import UIKit
 private struct FAStruct {
     
     static let FontName = "FontAwesome"
-    static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated. ******"
+    static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated with Info.plist when manual installation was performed. ******"
 }
 
 
@@ -114,7 +114,6 @@ public extension UILabel {
         set {
             
             if let newValue = newValue {
-                
                 
                 FontLoader.loadFontIfNeeded()
                 let fontAwesome = UIFont(name: FAStruct.FontName, size: self.font.pointSize)
