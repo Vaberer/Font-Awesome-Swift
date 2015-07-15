@@ -37,7 +37,15 @@ Then, run the following command:
 ```bash
 $ pod install
 ```
+Do not forget to import to your swift files where you want to use this library:
+```swift
+import Font_Awesome_Swift
+```
 
+### Manually
+
+1. Copy `FAIcon.swift` and `FontAwesome.ttf` files into your project
+2. Check to import `FontAwesome.ttf` in project, "Project" > "Target" > "Copy Bundle Resources"
 
 
 ## Usage
