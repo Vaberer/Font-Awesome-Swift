@@ -1,6 +1,51 @@
 import Foundation
 import UIKit
 
+private struct FAStruct {
+    
+    static let FontName = "FontAwesome"
+    static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated. ******"
+}
+
+
+private class FontLoader {
+    
+    struct Static {
+        static var onceToken : dispatch_once_t = 0
+    }
+    
+    static func loadFontIfNeeded() {
+        if (UIFont.fontNamesForFamilyName(FAStruct.FontName).count == 0) {
+            
+            dispatch_once(&Static.onceToken) {
+        let bundle = NSBundle(forClass: FontLoader.self)
+        var fontURL = NSURL()
+        let identifier = bundle.bundleIdentifier
+        
+        if identifier?.hasPrefix("org.cocoapods") == true {
+            
+            fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "FA Swift.bundle")!
+        } else {
+            
+            fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf")!
+        }
+        let data = NSData(contentsOfURL: fontURL)!
+        
+        let provider = CGDataProviderCreateWithCFData(data)
+        let font = CGFontCreateWithDataProvider(provider)!
+        
+        var error: Unmanaged<CFError>?
+        if !CTFontManagerRegisterGraphicsFont(font, &error) {
+            
+            let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
+            let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
+            NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+        }
+}
+        }
+    }
+}
+
 extension UIBarButtonItem {
     
     /**
@@ -8,8 +53,10 @@ extension UIBarButtonItem {
     */
     func setFAIcon(icon: FAType, iconSize: CGFloat) {
         
-        let font = UIFont(name: "FontAwesome", size: iconSize)
-        assert(font != nil, "****** FONT AWESOME SWIFT - FontAwesome font not found. Add it to the bundle. ******")
+        FontLoader.loadFontIfNeeded()
+        var font = UIFont(name: FAStruct.FontName, size: iconSize)
+        
+        assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
         title = icon.text
     }
@@ -20,8 +67,9 @@ extension UIBarButtonItem {
     var FAIcon: FAType? {
         set {
             
-            let font = UIFont(name: "FontAwesome", size: 23)
-            assert(font != nil, "****** FONT AWESOME SWIFT - FontAwesome font not found. Add it to the bundle. ******")
+            FontLoader.loadFontIfNeeded()
+            let font = UIFont(name: FAStruct.FontName, size: 23)
+            assert(font != nil,FAStruct.ErrorAnnounce)
             setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
             title = newValue?.text
         }
@@ -47,8 +95,9 @@ extension UIButton {
         
         if let titleLabel = titleLabel {
             
-            let font = UIFont(name: "FontAwesome", size: titleLabel.font.pointSize)
-            assert(font != nil, "****** FONT AWESOME SWIFT - FontAwesome font not found. Add it to the bundle. ******")
+            FontLoader.loadFontIfNeeded()
+            let font = UIFont(name: FAStruct.FontName, size: titleLabel.font.pointSize)
+            assert(font != nil, FAStruct.ErrorAnnounce)
             titleLabel.font = font!
             setTitle(icon.text, forState: state)
         }
@@ -65,9 +114,11 @@ extension UILabel {
         set {
             
             if let newValue = newValue {
+               
                 
-                let fontAwesome = UIFont(name: "FontAwesome", size: self.font.pointSize)
-                assert(font != nil, "****** FONT AWESOME SWIFT - FontAwesome font not found. Add it to the bundle. ******")
+                FontLoader.loadFontIfNeeded()
+                let fontAwesome = UIFont(name: FAStruct.FontName, size: self.font.pointSize)
+                assert(font != nil, FAStruct.ErrorAnnounce)
                 font = fontAwesome!
                 text = newValue.text
             }

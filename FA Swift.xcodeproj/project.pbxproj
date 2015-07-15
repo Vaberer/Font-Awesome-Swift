@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E6D9C401B563B1900D79834 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D9C3E1B563B1900D79834 /* FAIcon.swift */; };
+		4E6D9C411B563B1900D79834 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */; };
 		4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */; };
 		4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC91B53D5D7003CD25A /* ViewController.swift */; };
 		4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFACB1B53D5D7003CD25A /* Main.storyboard */; };
 		4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFACE1B53D5D7003CD25A /* Images.xcassets */; };
 		4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFAD01B53D5D7003CD25A /* LaunchScreen.xib */; };
 		4EFFFADE1B53D5D8003CD25A /* AF_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */; };
-		4EFFFAEC1B53ECB0003CD25A /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */; };
-		4EFFFAF51B5503CA003CD25A /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAF41B5503CA003CD25A /* FAIcon.swift */; };
 		4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAF61B550DBD003CD25A /* IconCell.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E6D9C3E1B563B1900D79834 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		4EFFFAC21B53D5D7003CD25A /* FA Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FA Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFAC61B53D5D7003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,8 +41,6 @@
 		4EFFFAD71B53D5D8003CD25A /* FA SwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FA SwiftTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFADC1B53D5D8003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AF_SwiftTests.swift; sourceTree = "<group>"; };
-		4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
-		4EFFFAF41B5503CA003CD25A /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
 		4EFFFAF61B550DBD003CD25A /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -62,6 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E6D9C3D1B563B1900D79834 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				4E6D9C3E1B563B1900D79834 /* FAIcon.swift */,
+				4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */,
+			);
+			path = Source;
+			sourceTree = SOURCE_ROOT;
+		};
 		4EFFFAB91B53D5D7003CD25A = {
 			isa = PBXGroup;
 			children = (
@@ -83,7 +92,7 @@
 		4EFFFAC41B53D5D7003CD25A /* FA Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4EFFFAF81B55200E003CD25A /* FA Swift */,
+				4E6D9C3D1B563B1900D79834 /* Source */,
 				4EFFFACB1B53D5D7003CD25A /* Main.storyboard */,
 				4EFFFAC91B53D5D7003CD25A /* ViewController.swift */,
 				4EFFFAF61B550DBD003CD25A /* IconCell.swift */,
@@ -120,15 +129,6 @@
 				4EFFFADC1B53D5D8003CD25A /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4EFFFAF81B55200E003CD25A /* FA Swift */ = {
-			isa = PBXGroup;
-			children = (
-				4EFFFAEB1B53ECB0003CD25A /* FontAwesome.ttf */,
-				4EFFFAF41B5503CA003CD25A /* FAIcon.swift */,
-			);
-			name = "FA Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,9 +212,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */,
-				4EFFFAEC1B53ECB0003CD25A /* FontAwesome.ttf in Resources */,
 				4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */,
 				4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */,
+				4E6D9C411B563B1900D79834 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +235,7 @@
 				4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */,
 				4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */,
 				4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */,
-				4EFFFAF51B5503CA003CD25A /* FAIcon.swift in Sources */,
+				4E6D9C401B563B1900D79834 /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +435,7 @@
 				4EFFFAE31B53D5D8003CD25A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4EFFFAE41B53D5D8003CD25A /* Build configuration list for PBXNativeTarget "FA SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -443,6 +444,7 @@
 				4EFFFAE61B53D5D8003CD25A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
