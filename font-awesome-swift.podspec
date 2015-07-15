@@ -8,8 +8,10 @@ Pod::Spec.new do |s|
   s.social_media_url = 'http://twitter.com/vaberer'
   s.authors = { "Patrik Vaberer" => "patrik.vaberer@gmail.com" }
   s.source = { :git => 'https://github.com/Vaberer/Font-Awesome-Swift.git', :tag => s.version }
-
+  
   s.ios.deployment_target = '8.0'
-  s.source_files   = 'Source/FAIcon.swift', 'Source/FontAwesome.ttf'
+  s.source_files   = 'Source/FAIcon.swift'
+  s.resource_bundle = { 'Font-Awesome-Swift' => 'Source/FontAwesome.ttf' }
+  s.frameworks = 'UIKit', 'CoreText'
   s.requires_arc = true
 end

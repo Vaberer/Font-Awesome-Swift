@@ -18,35 +18,35 @@ private class FontLoader {
         if (UIFont.fontNamesForFamilyName(FAStruct.FontName).count == 0) {
             
             dispatch_once(&Static.onceToken) {
-        let bundle = NSBundle(forClass: FontLoader.self)
-        var fontURL = NSURL()
-        let identifier = bundle.bundleIdentifier
-        
-        if identifier?.hasPrefix("org.cocoapods") == true {
-            
-            fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "FA Swift.bundle")!
-        } else {
-            
-            fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf")!
-        }
-        let data = NSData(contentsOfURL: fontURL)!
-        
-        let provider = CGDataProviderCreateWithCFData(data)
-        let font = CGFontCreateWithDataProvider(provider)!
-        
-        var error: Unmanaged<CFError>?
-        if !CTFontManagerRegisterGraphicsFont(font, &error) {
-            
-            let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
-            let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
-            NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
-        }
-}
+                let bundle = NSBundle(forClass: FontLoader.self)
+                var fontURL = NSURL()
+                let identifier = bundle.bundleIdentifier
+                
+                if identifier?.hasPrefix("org.cocoapods") == true {
+                    
+                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
+                } else {
+                    
+                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf")!
+                }
+                let data = NSData(contentsOfURL: fontURL)!
+                
+                let provider = CGDataProviderCreateWithCFData(data)
+                let font = CGFontCreateWithDataProvider(provider)!
+                
+                var error: Unmanaged<CFError>?
+                if !CTFontManagerRegisterGraphicsFont(font, &error) {
+                    
+                    let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
+                    let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
+                    NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+                }
+            }
         }
     }
 }
 
-extension UIBarButtonItem {
+public extension UIBarButtonItem {
     
     /**
     To set an icon, use i.e. `barName.FAIcon = FAType.FAGithub`
@@ -86,7 +86,7 @@ extension UIBarButtonItem {
     }
 }
 
-extension UIButton {
+public extension UIButton {
     
     /**
     To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, forState: .Normal)`
@@ -104,7 +104,7 @@ extension UIButton {
     }
 }
 
-extension UILabel {
+public extension UILabel {
     
     /**
     To set an icon, use i.e. `labelName.FAIcon = FAType.FAAdjust`
@@ -114,7 +114,7 @@ extension UILabel {
         set {
             
             if let newValue = newValue {
-               
+                
                 
                 FontLoader.loadFontIfNeeded()
                 let fontAwesome = UIFont(name: FAStruct.FontName, size: self.font.pointSize)
@@ -139,7 +139,7 @@ extension UILabel {
 /**
 List of all icons in Font Awesome
 */
-enum FAType: Int {
+public enum FAType: Int {
     
     static var count: Int {
         
