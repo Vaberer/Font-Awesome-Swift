@@ -1,4 +1,4 @@
-# Font-Awesome-Swift
+# Font Awesome Swift
 ![Font Awesome Swift](https://github.com/Vaberer/Font-Awesome-Swift/blob/master/resources/opensource_matters.png)
 
 Follow me: [@vaberer](https://twitter.com/vaberer)
