@@ -58,11 +58,17 @@ import Font_Awesome_Swift
 ### UILabel
 ```Swift
     labelName.FAIcon = FAType.FAGithub
+    
+    //or if you want to set an icon size, use:
+    labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
 ```
 
 ### UIButton
 ```Swift
     buttonName.setFAIcon(FAType.FAGithub, forState: .Normal)
+    
+    //or if you want to set an icon size, use:
+    buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
 ```
 
 ### UIBarButtonItem
