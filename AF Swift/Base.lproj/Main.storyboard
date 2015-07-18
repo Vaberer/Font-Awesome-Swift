@@ -34,7 +34,7 @@
                                                         <constraint firstAttribute="width" secondItem="m4H-Lx-mNB" secondAttribute="height" multiplier="1:1" id="mYy-kB-jXL"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tqP-fu-Y4t">
@@ -44,17 +44,17 @@
                                                         <constraint firstAttribute="width" secondItem="tqP-fu-Y4t" secondAttribute="height" multiplier="1:1" id="LYw-NK-I3w"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="FAFont" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="GGb-or-nOR">
-                                                    <rect key="frame" x="8" y="31" width="369" height="29.5"/>
+                                                    <rect key="frame" x="8" y="31" width="369" height="30"/>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HUT-LG-vXg">
-                                                    <rect key="frame" x="502" y="-1" width="90" height="90.5"/>
+                                                    <rect key="frame" x="502" y="-1" width="90" height="91"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="HUT-LG-vXg" secondAttribute="height" multiplier="1:1" id="3pK-Of-FNz"/>
                                                         <constraint firstAttribute="width" constant="48" id="Qhl-bx-5cb"/>
@@ -62,7 +62,7 @@
                                                         <constraint firstAttribute="height" constant="90" id="ma6-hf-vIb"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="80"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
@@ -115,10 +115,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Font Awesome Swift" id="S0q-X5-g9Q">
-                        <barButtonItem key="leftBarButtonItem" title="X" id="mte-3s-0h3"/>
+                        <barButtonItem key="leftBarButtonItem" id="mte-3s-0h3">
+                            <connections>
+                                <action selector="bGithubPressed:" destination="BYZ-38-t0r" id="GJf-wW-elN"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="ofY-7u-mSc">
+                            <connections>
+                                <action selector="bTwitterPressed:" destination="BYZ-38-t0r" id="uEz-8W-TEa"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bar" destination="mte-3s-0h3" id="txW-s5-eEz"/>
+                        <outlet property="bGithub" destination="mte-3s-0h3" id="P1R-DZ-nuY"/>
+                        <outlet property="bTwitter" destination="ofY-7u-mSc" id="AyW-6d-bFu"/>
                         <outlet property="tableView" destination="geJ-xi-UoL" id="6O1-Ib-uDZ"/>
                     </connections>
                 </viewController>

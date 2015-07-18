@@ -1,51 +1,6 @@
 import Foundation
 import UIKit
 
-private struct FAStruct {
-    
-    static let FontName = "FontAwesome"
-    static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated with Info.plist when manual installation was performed. ******"
-}
-
-
-private class FontLoader {
-    
-    struct Static {
-        static var onceToken : dispatch_once_t = 0
-    }
-    
-    static func loadFontIfNeeded() {
-        if (UIFont.fontNamesForFamilyName(FAStruct.FontName).count == 0) {
-            
-            dispatch_once(&Static.onceToken) {
-                let bundle = NSBundle(forClass: FontLoader.self)
-                var fontURL = NSURL()
-                let identifier = bundle.bundleIdentifier
-                
-                if identifier?.hasPrefix("org.cocoapods") == true {
-                    
-                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
-                } else {
-                    
-                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf")!
-                }
-                let data = NSData(contentsOfURL: fontURL)!
-                
-                let provider = CGDataProviderCreateWithCFData(data)
-                let font = CGFontCreateWithDataProvider(provider)!
-                
-                var error: Unmanaged<CFError>?
-                if !CTFontManagerRegisterGraphicsFont(font, &error) {
-                    
-                    let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
-                    let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
-                    NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
-                }
-            }
-        }
-    }
-}
-
 public extension UIBarButtonItem {
     
     /**
@@ -102,12 +57,24 @@ public extension UIButton {
             setTitle(icon.text, forState: state)
         }
     }
+    
+    /**
+    To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)`
+    */
+    func setFAIcon(icon: FAType, iconSize: CGFloat, forState state: UIControlState) {
+        
+        setFAIcon(icon, forState: state)
+        if let fontName = titleLabel?.font.fontName {
+            
+            titleLabel?.font = UIFont(name: fontName, size: iconSize)
+        }
+    }
 }
 
 public extension UILabel {
     
     /**
-    To set an icon, use i.e. `labelName.FAIcon = FAType.FAAdjust`
+    To set an icon, use i.e. `labelName.FAIcon = FAType.FAGithub`
     */
     var FAIcon: FAType? {
         
@@ -131,6 +98,60 @@ public extension UILabel {
                 }
             }
             return nil
+        }
+    }
+    
+    /**
+    To set an icon, use i.e. `labelName.setFAIcon(FAType.FAGithub, iconSize: 35)`
+    */
+    func setFAIcon(icon: FAType, iconSize: CGFloat) {
+        
+        FAIcon = icon
+        font = UIFont(name: font.fontName, size: iconSize)
+    }
+}
+
+private struct FAStruct {
+    
+    static let FontName = "FontAwesome"
+    static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated with Info.plist when manual installation was performed. ******"
+}
+
+
+private class FontLoader {
+    
+    struct Static {
+        static var onceToken : dispatch_once_t = 0
+    }
+    
+    static func loadFontIfNeeded() {
+        if (UIFont.fontNamesForFamilyName(FAStruct.FontName).count == 0) {
+            
+            dispatch_once(&Static.onceToken) {
+                let bundle = NSBundle(forClass: FontLoader.self)
+                var fontURL = NSURL()
+                let identifier = bundle.bundleIdentifier
+                
+                if identifier?.hasPrefix("org.cocoapods") == true {
+                    
+                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
+                } else {
+                    
+                    fontURL = bundle.URLForResource(FAStruct.FontName, withExtension: "ttf")!
+                }
+                let data = NSData(contentsOfURL: fontURL)!
+                
+                let provider = CGDataProviderCreateWithCFData(data)
+                let font = CGFontCreateWithDataProvider(provider)!
+                
+                var error: Unmanaged<CFError>?
+                if !CTFontManagerRegisterGraphicsFont(font, &error) {
+                    
+                    let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
+                    let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
+                    NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+                }
+            }
         }
     }
 }

@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUpdating, UISearchControllerDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var bar: UIBarButtonItem!
-    
+    @IBOutlet weak var bGithub: UIBarButtonItem!
+    @IBOutlet weak var bTwitter: UIBarButtonItem!
     var filteredData = [String]()
     var resultSearchController = UISearchController()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,10 +32,11 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUp
             return controller
         })()
         
-        bar.setFAIcon(FAType.FAGithub, iconSize: 35)
+        bGithub.setFAIcon(FAType.FAGithub, iconSize: 35)
+        bTwitter.setFAIcon(FAType.FATwitter, iconSize: 35)
     }
     
-
+    
     //MARK: UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -43,11 +44,11 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUp
         
         c.lFont.text = resultSearchController.active ? filteredData[indexPath.row] : helper[indexPath.row]
         
-        let icon = resultSearchController.active ? FAType(rawValue: find(helper, filteredData[indexPath.row])!) :  FAType(rawValue: indexPath.row)
+        let icon = resultSearchController.active ? FAType(rawValue: find(helper, filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
-
+        
         return c
     }
     
@@ -55,6 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUp
         
         return resultSearchController.active ? filteredData.count :  FAType.count
     }
+    
     
     //MARK: Search
     func updateSearchResultsForSearchController(searchController: UISearchController)
@@ -64,6 +66,24 @@ class ViewController: UIViewController, UITableViewDataSource, UISearchResultsUp
         self.tableView.reloadData()
     }
     
+    @IBAction func bGithubPressed(sender: UIBarButtonItem) {
+        
+        if let requestUrl = NSURL(string: "https://github.com/Vaberer/Font-Awesome-Swift") {
+            UIApplication.sharedApplication().openURL(requestUrl)
+        }
+    }
+    
+    @IBAction func bTwitterPressed(sender: UIBarButtonItem) {
+        
+        if let twitterURL = NSURL(string: "twitter://user?id=2271666416") {
+            
+            if UIApplication.sharedApplication().canOpenURL(twitterURL) {
+                
+                UIApplication.sharedApplication().openURL(twitterURL)
+            }
+            
+        }
+    }
     
     //MARK: Helpers
     func filterContentForSearchText(searchText: String) {
