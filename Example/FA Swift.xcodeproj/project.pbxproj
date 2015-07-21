@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4E6D9C401B563B1900D79834 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6D9C3E1B563B1900D79834 /* FAIcon.swift */; };
-		4E6D9C411B563B1900D79834 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */; };
+		4E00AD5D1B5EBE6D0042DCD5 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00AD5B1B5EBE6D0042DCD5 /* FAIcon.swift */; };
+		4E00AD5E1B5EBE6D0042DCD5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E00AD5C1B5EBE6D0042DCD5 /* FontAwesome.ttf */; };
 		4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */; };
 		4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC91B53D5D7003CD25A /* ViewController.swift */; };
 		4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFACB1B53D5D7003CD25A /* Main.storyboard */; };
@@ -29,8 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4E6D9C3E1B563B1900D79834 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
-		4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		4E00AD5B1B5EBE6D0042DCD5 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
+		4E00AD5C1B5EBE6D0042DCD5 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		4EFFFAC21B53D5D7003CD25A /* FA Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FA Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFAC61B53D5D7003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -62,14 +62,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4E6D9C3D1B563B1900D79834 /* Source */ = {
+		4E00AD5A1B5EBE6D0042DCD5 /* Source - FA Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4E6D9C3E1B563B1900D79834 /* FAIcon.swift */,
-				4E6D9C3F1B563B1900D79834 /* FontAwesome.ttf */,
+				4E00AD5B1B5EBE6D0042DCD5 /* FAIcon.swift */,
+				4E00AD5C1B5EBE6D0042DCD5 /* FontAwesome.ttf */,
 			);
-			path = Source;
-			sourceTree = SOURCE_ROOT;
+			name = "Source - FA Swift";
+			path = ../../Source;
+			sourceTree = "<group>";
 		};
 		4EFFFAB91B53D5D7003CD25A = {
 			isa = PBXGroup;
@@ -92,7 +93,7 @@
 		4EFFFAC41B53D5D7003CD25A /* FA Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4E6D9C3D1B563B1900D79834 /* Source */,
+				4E00AD5A1B5EBE6D0042DCD5 /* Source - FA Swift */,
 				4EFFFACB1B53D5D7003CD25A /* Main.storyboard */,
 				4EFFFAC91B53D5D7003CD25A /* ViewController.swift */,
 				4EFFFAF61B550DBD003CD25A /* IconCell.swift */,
@@ -214,7 +215,7 @@
 				4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */,
 				4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */,
 				4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */,
-				4E6D9C411B563B1900D79834 /* FontAwesome.ttf in Resources */,
+				4E00AD5E1B5EBE6D0042DCD5 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +236,7 @@
 				4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */,
 				4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */,
 				4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */,
-				4E6D9C401B563B1900D79834 /* FAIcon.swift in Sources */,
+				4E00AD5D1B5EBE6D0042DCD5 /* FAIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
