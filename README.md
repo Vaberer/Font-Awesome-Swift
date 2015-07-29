@@ -69,6 +69,8 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
+    
+    labelName.textColor = UIColor.redColor()
 ```
 
 ### UIButton
@@ -77,18 +79,23 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
+    
+    buttonName.tintColor = UIColor.redColor()
+
 ```
 
 ### UIBarButtonItem
-<p>Standard font size:</p>
 ```Swift
+    //Standard font size
     barName.FAIcon = FAType.FAGithub
+  
+    //Custom font size
+    barName.setFAIcon(FAType.FAGithub, iconSize: 35)
+    
+    barName.tintColor = UIColor.redColor()
 ```
 
-<p>Custom font size:</p>
-```Swift
-    barName.setFAIcon(FAType.FAGithub, iconSize: 35)
-```
+
 
 
 ## Author
