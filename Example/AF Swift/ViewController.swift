@@ -81,7 +81,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 UIApplication.sharedApplication().openURL(twitterURL)
             }
-            
         }
     }
     
