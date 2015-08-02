@@ -83,8 +83,7 @@ Super easy way how to add an icon.
     //or if you want to set an icon size, use:
     buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
     
-    buttonName.tintColor = UIColor.redColor()
-
+    buttonName.setTitleColor(UIColor.redColor(), forState: .Normal)
 ```
 
 ### UIBarButtonItem
