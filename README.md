@@ -5,7 +5,9 @@ Follow me: [@vaberer](https://twitter.com/vaberer)
 
 I like &#9733;. Do not forget to &#9733; this super convenient library.
 
-#Updated to Font Awesome 4.4 - Added 66 new icons!
+#Updated for Swift 2 projects in ```Swift2``` branch
+
+##Updated to Font Awesome 4.4 - Added 66 new icons!
 
 
 Font Awesome swift library for iOS. No image icons any more. Using Font Awesome Swift library is very easy to use. Look at the demo app which shows all icons and their names or just visit [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/).
@@ -57,6 +59,12 @@ import Font_Awesome_Swift
 1. Copy `FAIcon.swift` and `FontAwesome.ttf` files into your project
 2. Check to import `FontAwesome.ttf` in project, "Project" > "Target" > "Copy Bundle Resources"
 
+### To use Font Awesome in Swift 2:
+
+```git clone -b swift2  https://github.com/Vaberer/Font-Awesome-Swift.git```
+and continue as a manual installation
+
+Cocoa Pods and Master branch will be updated when Swift 2 will not be in beta.
 
 ## Usage
 
