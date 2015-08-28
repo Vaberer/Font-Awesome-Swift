@@ -5,7 +5,7 @@ Follow me: [@vaberer](https://twitter.com/vaberer)
 
 I like &#9733;. Do not forget to &#9733; this super convenient library.
 
-#Updated for Swift 2 projects in ```Swift2``` branch
+#Updated to Swift 2 projects in ```Swift2``` branch
 
 ##Updated to Font Awesome 4.4 - Added 66 new icons!
 
