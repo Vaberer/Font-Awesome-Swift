@@ -5,7 +5,7 @@ Follow me: [@vaberer](https://twitter.com/vaberer)
 
 I like &#9733;. Do not forget to &#9733; this super convenient library.
 
-#There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) which you will love!
+#There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
 ##Updated to Swift 2 projects in ```Swift2``` branch
