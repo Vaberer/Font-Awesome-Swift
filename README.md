@@ -5,9 +5,12 @@ Follow me: [@vaberer](https://twitter.com/vaberer)
 
 I like &#9733;. Do not forget to &#9733; this super convenient library.
 
-#Updated to Swift 2 projects in ```Swift2``` branch
+#There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) which you will love!
 
-##Updated to Font Awesome 4.4 - Added 66 new icons!
+
+##Updated to Swift 2 projects in ```Swift2``` branch
+
+###Updated to Font Awesome 4.4 - Added 66 new icons!
 
 
 Font Awesome swift library for iOS. No image icons any more. Using Font Awesome Swift library is very easy to use. Look at the demo app which shows all icons and their names or just visit [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/).
