@@ -57,15 +57,19 @@ Do not forget to import to your swift files where you want to use this library:
 import Font_Awesome_Swift
 ```
 
+### To use Font Awesome in Swift 2:
+```pod 'Font-Awesome-Swift', :git => 'https://github.com/Vaberer/Font-Awesome-Swift.git', :branch => 'Swift2'```
+
+
 ### Manually
 
 1. Copy `FAIcon.swift` and `FontAwesome.ttf` files into your project
 2. Check to import `FontAwesome.ttf` in project, "Project" > "Target" > "Copy Bundle Resources"
 
-### To use Font Awesome in Swift 2:
 
-```git clone -b swift2  https://github.com/Vaberer/Font-Awesome-Swift.git```
-and continue as a manual installation
+
+
+
 
 Cocoa Pods and Master branch will be updated when Swift 2 will not be in beta.
 
