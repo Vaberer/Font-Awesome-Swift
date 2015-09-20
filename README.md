@@ -8,8 +8,6 @@ I like &#9733;. Do not forget to &#9733; this super convenient library.
 #There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
-##Updated to Swift 2 projects in ```Swift2``` branch
-
 ###Updated to Font Awesome 4.4 - Added 66 new icons!
 
 
@@ -23,7 +21,9 @@ Font Awesome swift library for iOS. No image icons any more. Using Font Awesome 
 ## Requirements
 
 - iOS 8.0+ 
-- Xcode 6.3
+- Xcode 7
+
+(also available on Swift 1.2 in Swift1.2 branch or master 1.1.0 version)
 
 ## Installation
 
@@ -44,7 +44,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.1.0'
+pod 'Font-Awesome-Swift', '~> 1.2.0'
 ```
 
 Then, run the following command:
@@ -57,8 +57,8 @@ Do not forget to import to your swift files where you want to use this library:
 import Font_Awesome_Swift
 ```
 
-### To use Font Awesome in Swift 2:
-```pod 'Font-Awesome-Swift', :git => 'https://github.com/Vaberer/Font-Awesome-Swift.git', :branch => 'Swift2'```
+### To use Font Awesome in Swift 1.2:
+```pod 'Font-Awesome-Swift', '~> 1.1.0'```
 
 
 ### Manually
