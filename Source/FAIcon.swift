@@ -1,46 +1,6 @@
 import Foundation
 import UIKit
 
-public extension UIBarButtonItem {
-    
-    /**
-    To set an icon, use i.e. `barName.FAIcon = FAType.FAGithub`
-    */
-    func setFAIcon(icon: FAType, iconSize: CGFloat) {
-        
-        FontLoader.loadFontIfNeeded()
-        let font = UIFont(name: FAStruct.FontName, size: iconSize)
-        
-        assert(font != nil, FAStruct.ErrorAnnounce)
-        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
-        title = icon.text
-    }
-    
-    /**
-    To set an icon, use i.e. `barName.setFAIcon(FAType.FAGithub, iconSize: 35)`
-    */
-    var FAIcon: FAType? {
-        set {
-            
-            FontLoader.loadFontIfNeeded()
-            let font = UIFont(name: FAStruct.FontName, size: 23)
-            assert(font != nil,FAStruct.ErrorAnnounce)
-            setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
-            title = newValue?.text
-        }
-        
-        get {
-            if let title = title {
-                
-                if let index =  FAIcons.indexOf(title) {
-                    return FAType(rawValue: index)
-                }
-            }
-            return nil
-        }
-    }
-}
-
 public extension UIButton {
     
     /**
@@ -108,6 +68,46 @@ public extension UILabel {
         
         FAIcon = icon
         font = UIFont(name: font.fontName, size: iconSize)
+    }
+}
+
+public extension UIBarButtonItem {
+    
+    /**
+    To set an icon, use i.e. `barName.FAIcon = FAType.FAGithub`
+    */
+    func setFAIcon(icon: FAType, iconSize: CGFloat) {
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: iconSize)
+        
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+        title = icon.text
+    }
+    
+    /**
+    To set an icon, use i.e. `barName.setFAIcon(FAType.FAGithub, iconSize: 35)`
+    */
+    var FAIcon: FAType? {
+        set {
+            
+            FontLoader.loadFontIfNeeded()
+            let font = UIFont(name: FAStruct.FontName, size: 23)
+            assert(font != nil,FAStruct.ErrorAnnounce)
+            setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+            title = newValue?.text
+        }
+        
+        get {
+            if let title = title {
+                
+                if let index =  FAIcons.indexOf(title) {
+                    return FAType(rawValue: index)
+                }
+            }
+            return nil
+        }
     }
 }
 
