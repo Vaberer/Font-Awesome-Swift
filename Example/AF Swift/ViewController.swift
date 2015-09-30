@@ -44,7 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         c.lFont.text = resultSearchController.active ? filteredData[indexPath.row] : helper[indexPath.row]
         
-        let icon = resultSearchController.active ? FAType(rawValue: find(helper, filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
+        let icon = resultSearchController.active ? FAType(rawValue: helper.indexOf(filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
@@ -62,7 +62,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
         filteredData = []
-        filterContentForSearchText(searchController.searchBar.text.lowercaseString)
+        filterContentForSearchText(searchController.searchBar.text!.lowercaseString)
         self.tableView.reloadData()
     }
     
