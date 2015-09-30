@@ -9,7 +9,7 @@ public extension UIBarButtonItem {
     func setFAIcon(icon: FAType, iconSize: CGFloat) {
         
         FontLoader.loadFontIfNeeded()
-        var font = UIFont(name: FAStruct.FontName, size: iconSize)
+        let font = UIFont(name: FAStruct.FontName, size: iconSize)
         
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
@@ -31,8 +31,7 @@ public extension UIBarButtonItem {
         
         get {
             if let title = title {
-                
-                if let index =  find(FAIcons, title) {
+                if let index =  FAIcons.indexOf(title) {
                     return FAType(rawValue: index)
                 }
             }
@@ -92,8 +91,8 @@ public extension UILabel {
         
         get {
             if let text = text {
-                
-                if let index =  find(FAIcons, text) {
+              
+                if let index =  FAIcons.indexOf(text) {
                     return FAType(rawValue: index)
                 }
             }
