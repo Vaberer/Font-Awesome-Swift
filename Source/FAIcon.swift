@@ -38,6 +38,24 @@ public extension UIBarButtonItem {
             return nil
         }
     }
+    
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat) {
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: size)
+        
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+        
+        var text = prefixText
+        if let iconText = icon?.text {
+            
+            text += iconText
+        }
+        text += postfixText
+        title = text
+    }
 }
 
 public extension UIButton {
@@ -66,6 +84,26 @@ public extension UIButton {
         if let fontName = titleLabel?.font.fontName {
             
             titleLabel?.font = UIFont(name: fontName, size: iconSize)
+        }
+    }
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState) {
+        
+        if let titleLabel = titleLabel {
+            
+            FontLoader.loadFontIfNeeded()
+            let font = UIFont(name: FAStruct.FontName, size: size ?? titleLabel.font.pointSize)
+            assert(font != nil, FAStruct.ErrorAnnounce)
+            titleLabel.font = font!
+            
+            var text = prefixText
+            if let iconText = icon?.text {
+                
+                text += iconText
+            }
+            text += postfixText
+            
+            setTitle(text, forState: state)
         }
     }
 }
@@ -108,7 +146,25 @@ public extension UILabel {
         FAIcon = icon
         font = UIFont(name: font.fontName, size: iconSize)
     }
+    
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?) {
+        
+        FontLoader.loadFontIfNeeded()
+        let fontAwesome = UIFont(name: FAStruct.FontName, size: size ?? self.font.pointSize)
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        font = fontAwesome!
+        
+        var text = prefixText
+        if let iconText = icon?.text {
+            
+            text += iconText
+        }
+        text += postfixText
+        self.text = text
+    }
+    
 }
+
 
 private struct FAStruct {
     
