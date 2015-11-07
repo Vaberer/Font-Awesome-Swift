@@ -23,8 +23,6 @@ Font Awesome swift library for iOS. No image icons any more. Using Font Awesome 
 - iOS 8.0+ 
 - Xcode 7
 
-(also available on Swift 1.2 in Swift1.2 branch or master 1.1.0 version)
-
 ## Installation
 
 ### CocoaPods
@@ -44,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.2.0'
+pod 'Font-Awesome-Swift', '~> 1.3.0'
 ```
 
 Then, run the following command:
