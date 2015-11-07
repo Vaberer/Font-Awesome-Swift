@@ -57,21 +57,11 @@ Do not forget to import to your swift files where you want to use this library:
 import Font_Awesome_Swift
 ```
 
-### To use Font Awesome in Swift 1.2:
-```pod 'Font-Awesome-Swift', '~> 1.1.0'```
-
-
 ### Manually
 
 1. Copy `FAIcon.swift` and `FontAwesome.ttf` files into your project
 2. Check to import `FontAwesome.ttf` in project, "Project" > "Target" > "Copy Bundle Resources"
 
-
-
-
-
-
-Cocoa Pods and Master branch will be updated when Swift 2 will not be in beta.
 
 ## Usage
 
@@ -89,6 +79,9 @@ Super easy way how to add an icon.
     labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
     
     labelName.textColor = UIColor.redColor()
+    
+    
+    labelName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
 ```
 
 ### UIButton
@@ -99,6 +92,8 @@ Super easy way how to add an icon.
     buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
     
     buttonName.setTitleColor(UIColor.redColor(), forState: .Normal)
+    
+    buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal)
 ```
 
 ### UIBarButtonItem
@@ -110,6 +105,9 @@ Super easy way how to add an icon.
     barName.setFAIcon(FAType.FAGithub, iconSize: 35)
     
     barName.tintColor = UIColor.redColor()
+    
+    
+    barName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
 ```
 
 
