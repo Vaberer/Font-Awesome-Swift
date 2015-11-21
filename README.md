@@ -42,7 +42,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.3.0'
+pod 'Font-Awesome-Swift', '~> 1.4.0'
 ```
 
 Then, run the following command:
@@ -67,6 +67,15 @@ Super easy way how to add an icon.
 <p align="center">
   <img height="200" src="https://github.com/Vaberer/Font-Awesome-Swift/blob/master/resources/helper.png"/>
 </p>
+
+
+### UIImage
+```Swift
+    imageView.setFAIconWithName(FAType.FATwitter, textColor: UIColor.blueColor(), backgroundColor: UIColor.grayColor())
+    
+    imageView.setFAIconWithName(FAType.FATwitter, textColor: UIColor.blueColor())
+```
+
 
 
 ### UILabel
