@@ -16,6 +16,7 @@ public extension UIBarButtonItem {
         title = icon.text
     }
     
+    
     /**
     To set an icon, use i.e. `barName.setFAIcon(FAType.FAGithub, iconSize: 35)`
     */
@@ -75,6 +76,7 @@ public extension UIButton {
         }
     }
     
+    
     /**
     To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)`
     */
@@ -86,6 +88,7 @@ public extension UIButton {
             titleLabel?.font = UIFont(name: fontName, size: iconSize)
         }
     }
+    
     
     func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState) {
         
@@ -107,6 +110,7 @@ public extension UIButton {
         }
     }
 }
+
 
 public extension UILabel {
     
@@ -147,6 +151,7 @@ public extension UILabel {
         font = UIFont(name: font.fontName, size: iconSize)
     }
     
+    
     func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?) {
         
         FontLoader.loadFontIfNeeded()
@@ -173,6 +178,7 @@ public extension UIImage {
      Create UIImage from FAType
      */
     public static func FAIconWithName(icon: FAType, textColor: UIColor, size: CGSize, backgroundColor: UIColor) -> UIImage {
+        
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.Center
 
@@ -193,9 +199,12 @@ public extension UIImage {
         return image
     }
 
+    
     public static func FAIconWithName(name: FAType, textColor: UIColor, size: CGSize) -> UIImage {
+        
         return FAIconWithName(name, textColor: textColor, size: size, backgroundColor: UIColor.clearColor())
     }
+    
 }
 
 
@@ -253,6 +262,7 @@ public enum FAType: Int {
         
         return FAIcons.count
     }
+    
     
     var text: String? {
         
