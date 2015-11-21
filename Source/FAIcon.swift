@@ -166,6 +166,39 @@ public extension UILabel {
 }
 
 
+// Original idea from https://github.com/thii/FontAwesome.swift/blob/master/FontAwesome/FontAwesome.swift
+public extension UIImage {
+
+    /**
+     Create UIImage from FAType
+     */
+    public static func FAIconWithName(icon: FAType, textColor: UIColor, size: CGSize, backgroundColor: UIColor) -> UIImage {
+        let paragraph = NSMutableParagraphStyle()
+        paragraph.alignment = NSTextAlignment.Center
+
+        // Taken from FontAwesome.io's Fixed Width Icon CSS
+        let fontAspectRatio: CGFloat = 1.28571429
+        let fontSize = min(size.width / fontAspectRatio, size.height)
+
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: fontSize)
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph]
+
+        let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
+        UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
+        attributedString.drawInRect(CGRectMake(0, (size.height - fontSize) / 2, size.width, fontSize))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
+    }
+
+    public static func FAIconWithName(name: FAType, textColor: UIColor, size: CGSize) -> UIImage {
+        return FAIconWithName(name, textColor: textColor, size: size, backgroundColor: UIColor.clearColor())
+    }
+}
+
+
 private struct FAStruct {
     
     static let FontName = "FontAwesome"
