@@ -172,19 +172,19 @@ public extension UILabel {
 
 
 // Original idea from https://github.com/thii/FontAwesome.swift/blob/master/FontAwesome/FontAwesome.swift
-public extension UIImage {
+public extension UIImageView {
 
     /**
      Create UIImage from FAType
      */
-    public static func FAIconWithName(icon: FAType, textColor: UIColor, size: CGSize, backgroundColor: UIColor) -> UIImage {
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clearColor()) {
         
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.Center
 
         // Taken from FontAwesome.io's Fixed Width Icon CSS
         let fontAspectRatio: CGFloat = 1.28571429
-        let fontSize = min(size.width / fontAspectRatio, size.height)
+        let fontSize = min(frame.size.width / fontAspectRatio, frame.size.height)
 
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: fontSize)
@@ -192,18 +192,14 @@ public extension UIImage {
         let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph]
 
         let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
-        UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
-        attributedString.drawInRect(CGRectMake(0, (size.height - fontSize) / 2, size.width, fontSize))
+        UIGraphicsBeginImageContextWithOptions(frame.size, false , 0.0)
+        attributedString.drawInRect(CGRectMake(0, (frame.size.height - fontSize) / 2, frame.size.width, fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        return image
+        self.image = image
     }
 
     
-    public static func FAIconWithName(name: FAType, textColor: UIColor, size: CGSize) -> UIImage {
-        
-        return FAIconWithName(name, textColor: textColor, size: size, backgroundColor: UIColor.clearColor())
-    }
     
 }
 
