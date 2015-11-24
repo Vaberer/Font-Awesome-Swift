@@ -179,28 +179,56 @@ public extension UIImageView {
      */
     public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clearColor()) {
         
+        self.image = UIImage(icon: icon, size: frame.size, textColor: textColor, backgroundColor: backgroundColor)
+    }
+}
+
+
+public extension UITabBarItem {
+    
+    public func setFAIcon(icon: FAType) {
+        
+        image = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
+    }
+}
+
+
+public extension UISegmentedControl {
+    
+    public func setFAIcon(icon: FAType, forSegmentAtIndex segment: Int) {
+        
+        FontLoader.loadFontIfNeeded()
+        let font = UIFont(name: FAStruct.FontName, size: 23)
+        assert(font != nil, FAStruct.ErrorAnnounce)
+        setTitleTextAttributes([NSFontAttributeName: font!], forState: .Normal)
+        setTitle(icon.text, forSegmentAtIndex: segment)
+    }
+}
+
+
+public extension UIImage {
+    
+    public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.blackColor(), backgroundColor: UIColor = UIColor.clearColor()) {
+        
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.Center
-
+        
         // Taken from FontAwesome.io's Fixed Width Icon CSS
         let fontAspectRatio: CGFloat = 1.28571429
-        let fontSize = min(frame.size.width / fontAspectRatio, frame.size.height)
-
+        let fontSize = min(size.width / fontAspectRatio, size.height)
+        
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: fontSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
         let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph]
-
+        
         let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
-        UIGraphicsBeginImageContextWithOptions(frame.size, false , 0.0)
-        attributedString.drawInRect(CGRectMake(0, (frame.size.height - fontSize) / 2, frame.size.width, fontSize))
+        UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
+        attributedString.drawInRect(CGRectMake(0, (size.height - fontSize) / 2, size.width, fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
-        self.image = image
+        self.init(CGImage: image.CGImage!, scale: image.scale, orientation: image.imageOrientation)
     }
-
-    
-    
 }
 
 

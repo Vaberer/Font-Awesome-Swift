@@ -21,6 +21,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         
         self.resultSearchController = ({
+            
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.delegate = self
