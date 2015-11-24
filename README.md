@@ -8,6 +8,9 @@ I like &#9733;. Do not forget to &#9733; this super convenient library.
 #There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
+##Added ```UISegmentedControl``` and ```UITabbarItem``` support!
+
+
 ###Updated to Font Awesome 4.4 - Added 66 new icons!
 
 
@@ -116,9 +119,16 @@ Super easy way how to add an icon.
     
     barName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
 ```
+### UISegmentedControl
+```Swift
 
+  segmentedControl.setFAIcon(FAType.FATwitter, forSegmentAtIndex: 0)
+```
 
-
+### UITabbarItem
+```Swift
+  tabBarController?.tabBar.items?.first?.setFAIcon(FAType.FATwitter)
+```
 
 ## Author
 
