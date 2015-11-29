@@ -45,7 +45,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.4.2'
+pod 'Font-Awesome-Swift', '~> 1.4.3'
 ```
 
 Then, run the following command:
@@ -87,11 +87,14 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
-    
     labelName.textColor = UIColor.redColor()
     
     
     labelName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
+    
+    //to have bigger icon, use: 
+    labelName.setFAText(prefixText: "follow me on  ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, iconSize: 30)
+        
 ```
 
 ### UIButton
@@ -100,10 +103,12 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
-    
     buttonName.setTitleColor(UIColor.redColor(), forState: .Normal)
     
     buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal)
+    
+    //to have bigger icon, use: 
+    buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal, iconSize: 30)
 ```
 
 ### UIBarButtonItem
