@@ -90,23 +90,33 @@ public extension UIButton {
     }
     
     
-    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState) {
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState, iconSize: CGFloat? = nil) {
         
         if let titleLabel = titleLabel {
             
             FontLoader.loadFontIfNeeded()
-            let font = UIFont(name: FAStruct.FontName, size: size ?? titleLabel.font.pointSize)
-            assert(font != nil, FAStruct.ErrorAnnounce)
-            titleLabel.font = font!
+            let textFont = UIFont(name: FAStruct.FontName, size: size ?? titleLabel.font.pointSize)
+            assert(textFont != nil, FAStruct.ErrorAnnounce)
+            titleLabel.font = textFont!
             
-            var text = prefixText
+            let textAttribute = [NSFontAttributeName : titleLabel.font]
+            let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
+            
+            
             if let iconText = icon?.text {
                 
-                text += iconText
+                let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
+                let iconAttribute = [NSFontAttributeName : iconFont]
+                
+                
+                let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+                myString.appendAttributedString(iconString)
             }
-            text += postfixText
             
-            setTitle(text, forState: state)
+            let postfixString = NSAttributedString(string: postfixText)
+            myString.appendAttributedString(postfixString)
+            
+            setAttributedTitle(myString, forState: .Normal)
         }
     }
 }
@@ -152,20 +162,32 @@ public extension UILabel {
     }
     
     
-    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?) {
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, iconSize: CGFloat? = nil) {
         
         FontLoader.loadFontIfNeeded()
-        let fontAwesome = UIFont(name: FAStruct.FontName, size: size ?? self.font.pointSize)
-        assert(font != nil, FAStruct.ErrorAnnounce)
-        font = fontAwesome!
+        let textFont = UIFont(name: FAStruct.FontName, size: size ?? self.font.pointSize)
+        assert(textFont != nil, FAStruct.ErrorAnnounce)
+        font = textFont!
         
-        var text = prefixText
+        let textAttribute = [NSFontAttributeName : font]
+        let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
+        
+        
         if let iconText = icon?.text {
             
-            text += iconText
+            let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? self.font.pointSize)!
+            let iconAttribute = [NSFontAttributeName : iconFont]
+
+            
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+            myString.appendAttributedString(iconString)
         }
-        text += postfixText
-        self.text = text
+        
+        let postfixString = NSAttributedString(string: postfixText)
+        myString.appendAttributedString(postfixString)
+        
+        
+        self.attributedText = myString
     }
     
 }
