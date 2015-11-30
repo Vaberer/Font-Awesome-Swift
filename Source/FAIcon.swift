@@ -99,21 +99,21 @@ public extension UIButton {
             assert(textFont != nil, FAStruct.ErrorAnnounce)
             titleLabel.font = textFont!
             
-            let textAttribute = [NSFontAttributeName : titleLabel.font]
+            let textAttribute = [NSFontAttributeName : titleLabel.font, NSForegroundColorAttributeName: titleLabel.textColor]
             let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
             
             
             if let iconText = icon?.text {
                 
                 let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
-                let iconAttribute = [NSFontAttributeName : iconFont]
+                let iconAttribute = [NSFontAttributeName : iconFont, NSForegroundColorAttributeName: titleLabel.textColor]
                 
                 
                 let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
                 myString.appendAttributedString(iconString)
             }
             
-            let postfixString = NSAttributedString(string: postfixText)
+            let postfixString = NSAttributedString(string: postfixText, attributes: textAttribute)
             myString.appendAttributedString(postfixString)
             
             setAttributedTitle(myString, forState: .Normal)
