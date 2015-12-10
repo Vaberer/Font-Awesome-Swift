@@ -87,7 +87,7 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
-    labelName.textColor = UIColor.redColor()
+    labelName.textColor = UIColor.blueColor()
     
     
     labelName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
@@ -103,7 +103,10 @@ Super easy way how to add an icon.
     
     //or if you want to set an icon size, use:
     buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
-    buttonName.setTitleColor(UIColor.redColor(), forState: .Normal)
+    
+    //changing the color:
+    buttonName.titleLabel?.textColor = UIColor.blueColor()
+
     
     buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal)
     
