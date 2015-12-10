@@ -119,6 +119,20 @@ public extension UIButton {
             setAttributedTitle(myString, forState: .Normal)
         }
     }
+    
+    
+    func setFATitleColor(color: UIColor) {
+    
+
+        
+        let attributedString = NSMutableAttributedString(attributedString: titleLabel!.attributedText!)
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, titleLabel!.text!.characters.count))
+        
+        
+        
+        
+        
+    }
 }
 
 
@@ -250,6 +264,20 @@ public extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         self.init(CGImage: image.CGImage!, scale: image.scale, orientation: image.imageOrientation)
+    }
+}
+
+
+extension UISlider {
+    
+    func setFAMaximumValueImage(icon: FAType, customSize: CGSize? = nil) {
+        
+        maximumValueImage = UIImage(icon: icon, size: customSize ?? CGSizeMake(25, 25))
+    }
+    
+    func setFAMinimumValueImage(icon: FAType, customSize: CGSize? = nil) {
+        
+        minimumValueImage = UIImage(icon: icon, size: customSize ?? CGSizeMake(25, 25))
     }
 }
 
