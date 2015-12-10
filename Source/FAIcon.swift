@@ -90,7 +90,7 @@ public extension UIButton {
     }
     
     
-    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState: UIControlState, iconSize: CGFloat? = nil) {
+    func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState state: UIControlState, iconSize: CGFloat? = nil) {
         
         if let titleLabel = titleLabel {
             
@@ -116,7 +116,7 @@ public extension UIButton {
             let postfixString = NSAttributedString(string: postfixText)
             myString.appendAttributedString(postfixString)
             
-            setAttributedTitle(myString, forState: .Normal)
+            setAttributedTitle(myString, forState: state)
         }
     }
     
