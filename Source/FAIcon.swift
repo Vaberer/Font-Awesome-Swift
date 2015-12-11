@@ -32,7 +32,9 @@ public extension UIBarButtonItem {
         
         get {
             if let title = title {
+                
                 if let index =  FAIcons.indexOf(title) {
+                    
                     return FAType(rawValue: index)
                 }
             }
@@ -102,12 +104,10 @@ public extension UIButton {
             let textAttribute = [NSFontAttributeName : titleLabel.font]
             let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
             
-            
             if let iconText = icon?.text {
                 
                 let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
                 let iconAttribute = [NSFontAttributeName : iconFont]
-                
                 
                 let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
                 myString.appendAttributedString(iconString)
@@ -123,15 +123,8 @@ public extension UIButton {
     
     func setFATitleColor(color: UIColor) {
     
-
-        
         let attributedString = NSMutableAttributedString(attributedString: titleLabel!.attributedText!)
         attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, titleLabel!.text!.characters.count))
-        
-        
-        
-        
-        
     }
 }
 
@@ -159,6 +152,7 @@ public extension UILabel {
             if let text = text {
               
                 if let index =  FAIcons.indexOf(text) {
+                    
                     return FAType(rawValue: index)
                 }
             }
@@ -199,7 +193,6 @@ public extension UILabel {
         
         let postfixString = NSAttributedString(string: postfixText)
         myString.appendAttributedString(postfixString)
-        
         
         self.attributedText = myString
     }
@@ -274,6 +267,7 @@ public extension UISlider {
         
         maximumValueImage = UIImage(icon: icon, size: customSize ?? CGSizeMake(25, 25))
     }
+
     
     func setFAMinimumValueImage(icon: FAType, customSize: CGSize? = nil) {
         
