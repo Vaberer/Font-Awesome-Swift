@@ -122,10 +122,11 @@ Super easy way how to add an icon.
     // Custom font size
     barName.setFAIcon(FAType.FAGithub, iconSize: 35)
     
-    barName.tintColor = UIColor.redColor()
-    
-    
     barName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
+    
+    
+    barName.tintColor = UIColor.redColor()
+
 ```
 ### UISegmentedControl
 ```Swift
