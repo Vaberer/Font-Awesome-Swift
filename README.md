@@ -8,7 +8,7 @@ I like &#9733;. Do not forget to &#9733; this super convenient library.
 #There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
-##Added ```UISegmentedControl``` and ```UITabbarItem``` support!
+##Added ```UISegmentedControl``` & ```UITabbarItem``` & ```UISlider``` support!
 
 
 ###Updated to Font Awesome 4.4 - Added 66 new icons!
@@ -45,7 +45,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.4.4'
+pod 'Font-Awesome-Swift', '~> 1.4.5'
 ```
 
 Then, run the following command:
@@ -139,7 +139,7 @@ Super easy way how to add an icon.
   tabBarController?.tabBar.items?.first?.setFAIcon(FAType.FATwitter)
 ```
 
-### UITabbarItem
+### UISlider
 ```Swift
   // change minimum or maximum value image
   slider.setFAMinimumValueImage(.FABellSlashO)
