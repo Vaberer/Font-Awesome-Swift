@@ -50,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
-        
+        c.iIcon.setFAIconWithName(icon!, textColor: UIColor.blackColor())
         return c
     }
     

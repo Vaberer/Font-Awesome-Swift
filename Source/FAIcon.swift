@@ -1,6 +1,7 @@
 import Foundation
 import UIKit
 
+
 public extension UIBarButtonItem {
     
     /**
@@ -69,7 +70,6 @@ public extension UIButton {
     func setFAIcon(icon: FAType, forState state: UIControlState) {
         
         if let titleLabel = titleLabel {
-            
             FontLoader.loadFontIfNeeded()
             let font = UIFont(name: FAStruct.FontName, size: titleLabel.font.pointSize)
             assert(font != nil, FAStruct.ErrorAnnounce)
@@ -95,28 +95,24 @@ public extension UIButton {
     func setFAText(prefixText prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState state: UIControlState, iconSize: CGFloat? = nil) {
         
         if let titleLabel = titleLabel {
-            
             FontLoader.loadFontIfNeeded()
-            let textFont = UIFont(name: FAStruct.FontName, size: size ?? titleLabel.font.pointSize)
-            assert(textFont != nil, FAStruct.ErrorAnnounce)
-            titleLabel.font = textFont!
+            let textFont = UIFont(name: titleLabel.font!.fontName, size: size ?? titleLabel.font.pointSize)!
             
-            let textAttribute = [NSFontAttributeName : titleLabel.font]
-            let myString = NSMutableAttributedString(string: prefixText, attributes: textAttribute )
+            let textAttribute = [NSFontAttributeName : textFont]
+            let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttribute)
             
             if let iconText = icon?.text {
-                
                 let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
                 let iconAttribute = [NSFontAttributeName : iconFont]
                 
                 let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
-                myString.appendAttributedString(iconString)
+                prefixTextAttribured.appendAttributedString(iconString)
             }
             
-            let postfixString = NSAttributedString(string: postfixText)
-            myString.appendAttributedString(postfixString)
+            let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: textAttribute)
+            prefixTextAttribured.appendAttributedString(postfixTextAttributed)
             
-            setAttributedTitle(myString, forState: state)
+            setAttributedTitle(prefixTextAttribured, forState: state)
         }
     }
     
@@ -256,7 +252,11 @@ public extension UIImage {
         attributedString.drawInRect(CGRectMake(0, (size.height - fontSize) / 2, size.width, fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+        if let image = image {
         self.init(CGImage: image.CGImage!, scale: image.scale, orientation: image.imageOrientation)
+        } else {
+            self.init()
+        }
     }
 }
 
@@ -274,6 +274,28 @@ public extension UISlider {
         minimumValueImage = UIImage(icon: icon, size: customSize ?? CGSizeMake(25, 25))
     }
 }
+
+
+public extension UIViewController {
+    var FATitle: FAType? {
+        set {
+            FontLoader.loadFontIfNeeded()
+            let font = UIFont(name: FAStruct.FontName, size: 23)
+            assert(font != nil,FAStruct.ErrorAnnounce)
+            navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: font!]
+            title = newValue?.text
+        }
+        get {
+            if let title = title {
+                if let index =  FAIcons.indexOf(title) {
+                    return FAType(rawValue: index)
+                }
+            }
+            return nil
+        }
+    }
+}
+
 
 
 private struct FAStruct {
@@ -320,6 +342,7 @@ private class FontLoader {
         }
     }
 }
+
 
 /**
 List of all icons in Font Awesome

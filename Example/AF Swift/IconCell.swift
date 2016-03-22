@@ -10,6 +10,7 @@ import UIKit
 
 class IconCell: UITableViewCell {
 
+    @IBOutlet weak var iIcon: UIImageView!
     @IBOutlet weak var lBig: UILabel!
     @IBOutlet weak var lMedium: UILabel!
     @IBOutlet weak var lSmall: UILabel!
