@@ -159,7 +159,7 @@ Super easy way how to add an icon.
 
 ## Author
 
-Patrik Vaberer, patrik.vaberer@gmail.com
+Patrik Vaberer, patrik@toptal.com
 
 - [LinkedIn](https://sk.linkedin.com/in/vaberer)
 - [@vaberer](https://twitter.com/vaberer)
