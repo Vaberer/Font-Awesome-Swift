@@ -16,12 +16,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var filteredData = [String]()
     var resultSearchController = UISearchController()
     
+    @IBOutlet weak var l: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        b.hidden = true
+        b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .Normal, iconSize: 20)
+        b.setFATitleColor(UIColor.redColor())
+
+        l.hidden = true
+        l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, iconSize: 20)
+        l.setFAColor(UIColor.redColor())
+
+        
         self.resultSearchController = ({
-            
             let controller = UISearchController(searchResultsController: nil)
             controller.searchResultsUpdater = self
             controller.delegate = self
@@ -39,6 +48,29 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
+    @IBAction func bPressed(sender: AnyObject) {
+        
+        l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: "", size: 30, iconSize: 20)
+        l.setFAColor(UIColor.greenColor())
+//        l.FAIcon = .FATwitter
+        
+
+        b.setFAText(prefixText: "", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .Normal, iconSize: 20)
+        b.setFATitleColor(UIColor.greenColor())
+
+//        b.setFAIcon(.FATwitter, forState: .Normal)
+        
+
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        
+    }
+    
+    @IBOutlet weak var b: UIButton!
     //MARK: UITableView
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -92,7 +124,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Helpers
     func filterContentForSearchText(searchText: String) {
-        
         for f in helper {
             if f.lowercaseString.rangeOfString(searchText.lowercaseString) != nil {
                 
