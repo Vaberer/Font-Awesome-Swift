@@ -16,6 +16,8 @@
 		4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFAD01B53D5D7003CD25A /* LaunchScreen.xib */; };
 		4EFFFADE1B53D5D8003CD25A /* AF_SwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */; };
 		4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAF61B550DBD003CD25A /* IconCell.swift */; };
+		6AB824E11D00BEF200965FB5 /* IOIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB824E01D00BEF200965FB5 /* IOIcon.swift */; };
+		6AB824E41D00BF4300965FB5 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AB824E31D00BF4300965FB5 /* ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		4EFFFADC1B53D5D8003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFADD1B53D5D8003CD25A /* AF_SwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AF_SwiftTests.swift; sourceTree = "<group>"; };
 		4EFFFAF61B550DBD003CD25A /* IconCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IconCell.swift; sourceTree = "<group>"; };
+		6AB824E01D00BEF200965FB5 /* IOIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IOIcon.swift; path = ../../Source/IOIcon.swift; sourceTree = "<group>"; };
+		6AB824E31D00BF4300965FB5 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = ionicons.ttf; path = ../../Source/ionicons.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,10 +97,11 @@
 		4EFFFAC41B53D5D7003CD25A /* FA Swift */ = {
 			isa = PBXGroup;
 			children = (
-				4E00AD5A1B5EBE6D0042DCD5 /* Source - FA Swift */,
 				4EFFFACB1B53D5D7003CD25A /* Main.storyboard */,
 				4EFFFAC91B53D5D7003CD25A /* ViewController.swift */,
 				4EFFFAF61B550DBD003CD25A /* IconCell.swift */,
+				6AB824E21D00BEF800965FB5 /* Source - IO Swift */,
+				4E00AD5A1B5EBE6D0042DCD5 /* Source - FA Swift */,
 				4EFFFAC51B53D5D7003CD25A /* Supporting Files */,
 			);
 			name = "FA Swift";
@@ -130,6 +135,15 @@
 				4EFFFADC1B53D5D8003CD25A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6AB824E21D00BEF800965FB5 /* Source - IO Swift */ = {
+			isa = PBXGroup;
+			children = (
+				6AB824E01D00BEF200965FB5 /* IOIcon.swift */,
+				6AB824E31D00BF4300965FB5 /* ionicons.ttf */,
+			);
+			name = "Source - IO Swift";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */,
+				6AB824E41D00BF4300965FB5 /* ionicons.ttf in Resources */,
 				4EFFFAD21B53D5D7003CD25A /* LaunchScreen.xib in Resources */,
 				4EFFFACF1B53D5D7003CD25A /* Images.xcassets in Resources */,
 				4E00AD5E1B5EBE6D0042DCD5 /* FontAwesome.ttf in Resources */,
@@ -238,6 +253,7 @@
 				4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */,
 				4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */,
 				4E00AD5D1B5EBE6D0042DCD5 /* FAIcon.swift in Sources */,
+				6AB824E11D00BEF200965FB5 /* IOIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
