@@ -13,10 +13,25 @@
 	
 	foreach ($yaml['icons'] as $key => $icon) {
 		
-		$icon_class = str_replace(' ', '', ucwords(str_replace('-', ' ', $icon['id'])));
+		$iconClass = str_replace(' ', '', ucwords(str_replace('-', ' ', $icon['id'])));
 		
-		$classes[] = "FA$icon_class";
+		$classes[] = "FA$iconClass";
 		$codes[] = '"\u{'.$icon['unicode'].'}"';
+		
+		if (isset($icon['aliases'])) {
+			
+			foreach ($icon['aliases'] as $key => $class) {
+				$aliasClass = str_replace(' ', '', ucwords(str_replace('-', ' ', $class)));
+				$classes[] = "FA$aliasClass";
+			}
+			
+			$c = count($icon['aliases']);
+			
+			while ($c > 0) {
+				$codes[] = '"\u{'.$icon['unicode'].'}"';
+				--$c;
+			}
+		}
 	}
 	
 	echo 'Class String:<br>'.implode(', ', $classes).'<br><br>Unicode String:<br>['.implode(', ', $codes).']';
