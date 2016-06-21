@@ -25,12 +25,8 @@
 				$classes[] = "FA$aliasClass";
 			}
 			
-			$c = count($icon['aliases']);
-			
-			while ($c > 0) {
+			for ($c = count($icon['aliases']); $c > 0; --$c)
 				$codes[] = '"\u{'.$icon['unicode'].'}"';
-				--$c;
-			}
 		}
 	}
 	
