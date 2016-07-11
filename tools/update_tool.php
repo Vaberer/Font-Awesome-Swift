@@ -30,5 +30,9 @@
 		}
 	}
 	
-	echo 'Class String:<br>'.implode(', ', $classes).'<br><br>Unicode String:<br>['.implode(', ', $codes).']';
+	$classStrings = implode('", "', $classes);
+	$classes = implode(', ', $classes);
+	$codes = implode(', ', $codes);
+	
+	echo "Classes:<br>case $classes<br><br>Unicode:<br>private let FAIcons = [$codes]<br><br>Helper:<br>let helper = [\"$classStrings\"]";
 ?>
