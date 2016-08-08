@@ -78,7 +78,7 @@ public extension UIButton {
         setTitle(nil, for: state)
         FontLoader.loadFontIfNeeded()
         guard let titleLabel = titleLabel else { return }
-        let attributedText = attributedTitle(for: .normal) ?? AttributedString()
+        let attributedText = attributedTitle(for: .normal) ?? NSAttributedString()
         let  startFont =  attributedText.length == 0 ? nil : attributedText.attribute(NSFontAttributeName, at: 0, effectiveRange: nil) as? UIFont
         let endFont = attributedText.length == 0 ? nil : attributedText.attribute(NSFontAttributeName, at: attributedText.length - 1, effectiveRange: nil) as? UIFont
         var textFont = titleLabel.font
@@ -94,10 +94,10 @@ public extension UIButton {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
             let iconAttribute = [NSFontAttributeName:iconFont]
             
-            let iconString = AttributedString(string: iconText, attributes: iconAttribute)
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
             prefixTextAttribured.append(iconString)
         }
-        let postfixTextAttributed = AttributedString(string: postfixText, attributes: textAttribute)
+        let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: textAttribute)
         prefixTextAttribured.append(postfixTextAttributed)
         
         setAttributedTitle(prefixTextAttribured, for: state)
@@ -107,7 +107,7 @@ public extension UIButton {
     func setFATitleColor(color: UIColor, forState state: UIControlState = .normal) {
         FontLoader.loadFontIfNeeded()
  
-        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? AttributedString())
+        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString())
         attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attributedString.length))
        
         setAttributedTitle(attributedString, for: state)
@@ -147,7 +147,7 @@ public extension UILabel {
     
     func setFAColor(color: UIColor) {
         FontLoader.loadFontIfNeeded()
-        let attributedString = NSMutableAttributedString(attributedString: attributedText ?? AttributedString())
+        let attributedString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
         attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attributedText!.length))
         textColor = color
     }
@@ -157,7 +157,7 @@ public extension UILabel {
         text = nil
         FontLoader.loadFontIfNeeded()
         
-        let attrText = attributedText ?? AttributedString()
+        let attrText = attributedText ?? NSAttributedString()
         let startFont = attrText.length == 0 ? nil : attrText.attribute(NSFontAttributeName, at: 0, effectiveRange: nil) as? UIFont
         let endFont = attrText.length == 0 ? nil : attrText.attribute(NSFontAttributeName, at: attrText.length - 1, effectiveRange: nil) as? UIFont
         var textFont = font
@@ -173,10 +173,10 @@ public extension UILabel {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? font.pointSize)!
             let iconAttribute = [NSFontAttributeName : iconFont]
             
-            let iconString = AttributedString(string: iconText, attributes: iconAttribute)
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
             prefixTextAttribured.append(iconString)
         }
-        let postfixTextAttributed = AttributedString(string: postfixText, attributes: textAttribute)
+        let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: textAttribute)
         prefixTextAttribured.append(postfixTextAttributed)
         
         attributedText = prefixTextAttribured
@@ -191,7 +191,7 @@ public extension UIImageView {
     /**
      Create UIImage from FAType
      */
-    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clear()) {
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         self.image = UIImage(icon: icon, size: frame.size, textColor: textColor, backgroundColor: backgroundColor)
     }
@@ -221,7 +221,7 @@ public extension UISegmentedControl {
 
 public extension UIImage {
     
-    public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.black(), backgroundColor: UIColor = UIColor.clear()) {
+    public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.center
@@ -232,7 +232,7 @@ public extension UIImage {
         assert(font != nil, FAStruct.ErrorAnnounce)
         let attributes = [NSFontAttributeName: font!, NSForegroundColorAttributeName: textColor, NSBackgroundColorAttributeName: backgroundColor, NSParagraphStyleAttributeName: paragraph]
         
-        let attributedString = AttributedString(string: icon.text!, attributes: attributes)
+        let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
         UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
         attributedString.draw(in: CGRect(origin: CGPoint(x: 0,y: (size.height - fontSize)), size: CGSize(width: size.width, height: fontSize)))
         let image = UIGraphicsGetImageFromCurrentImageContext()
@@ -301,10 +301,10 @@ private class FontLoader {
                 
                 if identifier?.hasPrefix("org.cocoapods") == true {
                     
-                    fontURL = bundle.urlForResource(FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
+                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
                 } else {
                     
-                    fontURL = bundle.urlForResource(FAStruct.FontName, withExtension: "ttf")!
+                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf")!
                 }
                 let data = try! Data(contentsOf: fontURL as URL)
                 let provider = CGDataProvider(data: data)

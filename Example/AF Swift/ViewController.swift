@@ -23,11 +23,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         b.isHidden = true
         b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
-        b.setFATitleColor(color: UIColor.red())
+        b.setFATitleColor(color: UIColor.red)
 
         l.isHidden = true
         l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, iconSize: 20)
-        l.setFAColor(color: UIColor.red())
+        l.setFAColor(color: UIColor.red)
 
         
         self.resultSearchController = ({
@@ -37,7 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
             controller.searchBar.searchBarStyle = .minimal
-            controller.searchBar.barTintColor = UIColor.blue()
+            controller.searchBar.barTintColor = UIColor.blue
             controller.searchBar.placeholder = "Type Icon Name"
             self.tableView.tableHeaderView = controller.searchBar
             return controller
@@ -51,12 +51,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func bPressed(sender: AnyObject) {
         
         l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: "", size: 30, iconSize: 20)
-        l.setFAColor(color: UIColor.green())
+        l.setFAColor(color: UIColor.green)
 //        l.FAIcon = .FATwitter
         
 
         b.setFAText(prefixText: "", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
-        b.setFATitleColor(color: UIColor.green())
+        b.setFATitleColor(color: UIColor.green)
 
 //        b.setFAIcon(.FATwitter, forState: .Normal)
         
@@ -84,7 +84,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
-        c.iIcon.setFAIconWithName(icon: icon!, textColor: UIColor.black())
+        c.iIcon.setFAIconWithName(icon: icon!, textColor: UIColor.black)
         return c
     }
     
@@ -109,7 +109,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func bGithubPressed(sender: UIBarButtonItem) {
         
         if let requestUrl = NSURL(string: "https://github.com/Vaberer/Font-Awesome-Swift") {
-            UIApplication.shared().openURL(requestUrl as URL)
+            UIApplication.shared.openURL(requestUrl as URL)
         }
     }
     
@@ -118,9 +118,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let twitterURL = NSURL(string: "twitter://user?id=2271666416") {
             
-            if UIApplication.shared().canOpenURL(twitterURL as URL) {
+            if UIApplication.shared.canOpenURL(twitterURL as URL) {
                 
-                UIApplication.shared().openURL(twitterURL as URL)
+                UIApplication.shared.openURL(twitterURL as URL)
             }
         }
     }
