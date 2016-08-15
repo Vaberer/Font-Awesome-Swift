@@ -286,28 +286,23 @@ private struct FAStruct {
 
 private class FontLoader {
     
-//    struct Static {
-//        static var onceToken : dispatch_once_t = 0
-//    }
-    
     static func loadFontIfNeeded() {
         if (UIFont.fontNames(forFamilyName: FAStruct.FontName).count == 0) {
             
-//            dispatch_once(&Static.onceToken) {
             _ = {
                 let bundle = Bundle(for: FontLoader.self)
-                var fontURL = NSURL()
+                var fontURL: URL!
                 let identifier = bundle.bundleIdentifier
                 
                 if identifier?.hasPrefix("org.cocoapods") == true {
                     
-                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")!
+                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf", subdirectory: "Font-Awesome-Swift.bundle")
                 } else {
                     
-                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf")!
+                    fontURL = bundle.url(forResource: FAStruct.FontName, withExtension: "ttf")
                 }
                 let data = try! Data(contentsOf: fontURL as URL)
-                let provider = CGDataProvider(data: data)
+                let provider = CGDataProvider(data: data as CFData)
                 let font = CGFont(provider!)
                 
                 var error: Unmanaged<CFError>?
