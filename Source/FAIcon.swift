@@ -191,9 +191,9 @@ public extension UIImageView {
     /**
      Create UIImage from FAType
      */
-    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clear) {
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
-        self.image = UIImage(icon: icon, size: frame.size, textColor: textColor, backgroundColor: backgroundColor)
+        self.image = UIImage(icon: icon, size: size ?? frame.size, textColor: textColor, backgroundColor: backgroundColor)
     }
 }
 
