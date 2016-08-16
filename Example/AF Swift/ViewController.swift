@@ -21,13 +21,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        b.hidden = true
-        b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .Normal, iconSize: 20)
-        b.setFATitleColor(UIColor.redColor())
+        b.isHidden = true
+        b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
+        b.setFATitleColor(color: UIColor.red)
 
-        l.hidden = true
+        l.isHidden = true
         l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, iconSize: 20)
-        l.setFAColor(UIColor.redColor())
+        l.setFAColor(color: UIColor.red)
 
         
         self.resultSearchController = ({
@@ -36,27 +36,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             controller.delegate = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            controller.searchBar.searchBarStyle = .Minimal
-            controller.searchBar.barTintColor = UIColor.blueColor()
+            controller.searchBar.searchBarStyle = .minimal
+            controller.searchBar.barTintColor = UIColor.blue
             controller.searchBar.placeholder = "Type Icon Name"
             self.tableView.tableHeaderView = controller.searchBar
             return controller
         })()
         
-        bGithub.setFAIcon(FAType.FAGithub, iconSize: 35)
-        bTwitter.setFAIcon(FAType.FATwitter, iconSize: 35)
+        bGithub.setFAIcon(icon: FAType.FAGithub, iconSize: 35)
+        bTwitter.setFAIcon(icon: FAType.FATwitter, iconSize: 35)
     }
     
     
     @IBAction func bPressed(sender: AnyObject) {
         
         l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: "", size: 30, iconSize: 20)
-        l.setFAColor(UIColor.greenColor())
+        l.setFAColor(color: UIColor.green)
 //        l.FAIcon = .FATwitter
         
 
-        b.setFAText(prefixText: "", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .Normal, iconSize: 20)
-        b.setFATitleColor(UIColor.greenColor())
+        b.setFAText(prefixText: "", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
+        b.setFATitleColor(color: UIColor.green)
 
 //        b.setFAIcon(.FATwitter, forState: .Normal)
         
@@ -64,7 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         
@@ -72,32 +72,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var b: UIButton!
     //MARK: UITableView
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let c = tableView.dequeueReusableCellWithIdentifier("IconCell") as! IconCell
+        let c = tableView.dequeueReusableCell(withIdentifier: "IconCell") as! IconCell
         
-        c.lFont.text = resultSearchController.active ? filteredData[indexPath.row] : helper[indexPath.row]
+        c.lFont.text = resultSearchController.isActive ? filteredData[indexPath.row] : helper[indexPath.row]
         
-        let icon = resultSearchController.active ? FAType(rawValue: helper.indexOf(filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
+        let icon = resultSearchController.isActive ? FAType(rawValue: helper.index(of: filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
-        c.iIcon.setFAIconWithName(icon!, textColor: UIColor.blackColor())
+        c.iIcon.setFAIconWithName(icon: icon!, textColor: UIColor.black)
         return c
     }
     
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return resultSearchController.active ? filteredData.count :  FAType.count
+        return resultSearchController.isActive ? filteredData.count :  FAType.count
     }
     
     
     // MARK: Search
-    func updateSearchResultsForSearchController(searchController: UISearchController)
+    
+    
+    func updateSearchResults(for searchController: UISearchController)
     {
         filteredData = []
-        filterContentForSearchText(searchController.searchBar.text!.lowercaseString)
+        filterContentForSearchText(searchText: searchController.searchBar.text!.lowercased())
         self.tableView.reloadData()
     }
     
@@ -105,7 +109,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func bGithubPressed(sender: UIBarButtonItem) {
         
         if let requestUrl = NSURL(string: "https://github.com/Vaberer/Font-Awesome-Swift") {
-            UIApplication.sharedApplication().openURL(requestUrl)
+            UIApplication.shared.openURL(requestUrl as URL)
         }
     }
     
@@ -114,9 +118,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let twitterURL = NSURL(string: "twitter://user?id=2271666416") {
             
-            if UIApplication.sharedApplication().canOpenURL(twitterURL) {
+            if UIApplication.shared.canOpenURL(twitterURL as URL) {
                 
-                UIApplication.sharedApplication().openURL(twitterURL)
+                UIApplication.shared.openURL(twitterURL as URL)
             }
         }
     }
@@ -125,7 +129,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: Helpers
     func filterContentForSearchText(searchText: String) {
         for f in helper {
-            if f.lowercaseString.rangeOfString(searchText.lowercaseString) != nil {
+            if f.lowercased().range(of: searchText.lowercased()) != nil {
                 
                 filteredData.append(f)
             }
