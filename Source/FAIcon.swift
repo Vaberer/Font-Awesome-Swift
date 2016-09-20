@@ -306,15 +306,16 @@ private class FontLoader {
                 }
                 let data = NSData(contentsOfURL: fontURL)!
                 
-                let provider = CGDataProviderCreateWithCFData(data)
-                let font = CGFontCreateWithDataProvider(provider)!
-                
-                var error: Unmanaged<CFError>?
-                if !CTFontManagerRegisterGraphicsFont(font, &error) {
+                if let provider = CGDataProviderCreateWithCFData(data) {
+                    let font = CGFontCreateWithDataProvider(provider)!
                     
-                    let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
-                    let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
-                    NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+                    var error: Unmanaged<CFError>?
+                    if !CTFontManagerRegisterGraphicsFont(font, &error) {
+                        
+                        let errorDescription: CFStringRef = CFErrorCopyDescription(error!.takeUnretainedValue())
+                        let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
+                        NSException(name: NSInternalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
+                    }
                 }
             }
         }
