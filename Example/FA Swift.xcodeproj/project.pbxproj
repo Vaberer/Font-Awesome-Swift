@@ -182,6 +182,7 @@
 				TargetAttributes = {
 					4EFFFAC11B53D5D7003CD25A = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 7B65AY7GL4;
 					};
 					4EFFFAD61B53D5D8003CD25A = {
 						CreatedOnToolsVersion = 6.4;
@@ -367,6 +368,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7B65AY7GL4;
 				INFOPLIST_FILE = "AF Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -380,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 7B65AY7GL4;
 				INFOPLIST_FILE = "AF Swift/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
