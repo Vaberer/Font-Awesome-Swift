@@ -289,7 +289,6 @@ private class FontLoader {
     static func loadFontIfNeeded() {
         if (UIFont.fontNames(forFamilyName: FAStruct.FontName).count == 0) {
             
-            _ = {
                 let bundle = Bundle(for: FontLoader.self)
                 var fontURL: URL!
                 let identifier = bundle.bundleIdentifier
@@ -312,7 +311,7 @@ private class FontLoader {
                     let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
                     NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
                 }
-            }
+
         }
     }
 }
