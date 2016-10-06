@@ -234,7 +234,7 @@ public extension UIImage {
         
         let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
         UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
-        attributedString.draw(in: CGRect(x: (size.width - fontSize) / 2, y: (size.height - fontSize) / 2, width: size.width, height: fontSize))
+        attributedString.draw(in: CGRect(x: 0, y: (size.height - fontSize) * 0.5, width: size.width, height: fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         if let image = image {
