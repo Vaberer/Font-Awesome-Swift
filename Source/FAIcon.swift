@@ -203,6 +203,7 @@ public extension UITabBarItem {
     public func setFAIcon(icon: FAType) {
         FontLoader.loadFontIfNeeded()
         image = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
+        selectedImage = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
     }
 }
 
