@@ -329,7 +329,7 @@ public enum FAType: Int {
     }
     
     
-    var text: String? {
+    public var text: String? {
         
         return FAIcons[rawValue]
     }
