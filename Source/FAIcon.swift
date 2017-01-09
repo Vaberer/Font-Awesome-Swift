@@ -200,10 +200,11 @@ public extension UIImageView {
 
 public extension UITabBarItem {
     
-    public func setFAIcon(icon: FAType) {
+    public func setFAIcon(icon: FAType, size: CGSize? = nil, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
-        image = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
-        selectedImage = UIImage(icon: icon, size: CGSize(width: 30, height: 30))
+        let tabBarItemImageSize = size ?? CGSize(width: 30, height: 30)
+        image = UIImage(icon: icon, size: tabBarItemImageSize, textColor: textColor, backgroundColor: backgroundColor)
+        selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor)
     }
 }
 
