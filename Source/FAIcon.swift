@@ -246,6 +246,50 @@ public extension UIImage {
             self.init()
         }
     }
+    
+    public convenience init(bgIcon: FAType, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
+        
+        let bgSize: CGSize!
+        let topSize: CGSize!
+        let bgRect: CGRect!
+        let topRect: CGRect!
+        
+        if bgLarge! {
+            topSize = size ?? CGSize(width: 30, height: 30)
+            bgSize = CGSize(width: 2 * topSize.width, height: 2 * topSize.height)
+            
+        } else {
+            
+            bgSize = size ?? CGSize(width: 30, height: 30)
+            topSize = CGSize(width: 2 * bgSize.width, height: 2 * bgSize.height)
+        }
+        
+        let bgImage = UIImage.init(icon: bgIcon, size: bgSize, textColor: bgTextColor)
+        let topImage = UIImage.init(icon: topIcon, size: topSize, textColor: topTextColor)
+        
+        if bgLarge! {
+            bgRect = CGRect(x: 0, y: 0, width: bgSize.width, height: bgSize.height)
+            topRect = CGRect(x: topSize.width/2, y: topSize.height/2, width: topSize.width, height: topSize.height)
+            UIGraphicsBeginImageContextWithOptions(bgImage.size, false, 0.0)
+            
+        } else {
+            topRect = CGRect(x: 0, y: 0, width: topSize.width, height: topSize.height)
+            bgRect = CGRect(x: bgSize.width/2, y: bgSize.height/2, width: bgSize.width, height: bgSize.height)
+            UIGraphicsBeginImageContextWithOptions(topImage.size, false, 0.0)
+            
+        }
+        
+        bgImage.draw(in: bgRect)
+        topImage.draw(in: topRect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        if let image = image {
+            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: image.imageOrientation)
+        } else {
+            self.init()
+        }
+    }    
 }
 
 
