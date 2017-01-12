@@ -75,86 +75,121 @@ Super easy way how to add an icon.
 
 
 ### UIImage
-```Swift
-    imageView.setFAIconWithName(FAType.FATwitter, textColor: UIColor.blueColor(), backgroundColor: UIColor.grayColor())
 
-    imageView.setFAIconWithName(FAType.FATwitter, textColor: UIColor.blueColor())
+
+For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/#stacked)
+
+```Swift
+    UIImage.init(icon: .FATwitter, size: CGSize(width: 35, height: 35))
+    
+    // Change colors
+    UIImage.init(icon: .FATwitter, size: CGSize(width: 35, height: 35), textColor: .red, backgroundColor: .black)
+    
+    // Stacked Images With Bigger Background
+    UIImage.init(bgIcon: .FASquareO, bgTextColor: .white, topIcon: .FATwitter, topTextColor: .white, bgLarge: true)
+    UIImage.init(bgIcon: .FACircle, bgTextColor: .black, topIcon: .FAFlag, topTextColor: .white, bgLarge: true)
+    
+    // Stacked Images With Smaller Background
+    UIImage.init(bgIcon: .FACamera, bgTextColor: .black, topIcon: .FABan, topTextColor: .red, bgLarge: false)
+
+    // Stacked Images With Bigger Background and Custom Size
+    UIImage.init(bgIcon: .FASquare, bgTextColor: .black, topIcon: .FATerminal, topTextColor: .white, bgLarge: true, size: CGSize(width: 50, height: 50))
+
 ```
 
+
+### UIImageView
+```Swift
+    imageView.setFAIconWithName(icon: .FATwitter, textColor: .blue, backgroundColor: .gray)
+
+    imageView.setFAIconWithName(icon: .FATwitter, textColor: .blue)
+    
+```
 
 
 ### UILabel
 ```Swift
-    labelName.FAIcon = FAType.FAGithub
+    labelName.FAIcon = .FAGithub
 
-    labelName.setFAIcon(FAType.FAGithub, iconSize: 35)
+    labelName.setFAIcon(icon: .FAGithub, iconSize: 35)
 
-    labelName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
+    labelName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25)
 
     // bigger icon:
-    labelName.setFAText(prefixText: "follow me on  ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, iconSize: 30)
+    labelName.setFAText(prefixText: "follow me on  ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, iconSize: 30)
 
-    labelName.setFAColor(UIColor.redColor())
+    labelName.setFAColor(.red)
 
 ```
+
 
 ### UIButton
 ```Swift
-    buttonName.setFAIcon(FAType.FAGithub, forState: .Normal)
+    buttonName.setFAIcon(icon: .FAGithub, forState: .normal)
 
     // set an icon size
-    buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)
+    buttonName.setFAIcon(icon: .FAGithub, iconSize: 35, forState: .normal)
 
-    buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal)
+    buttonName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal)
 
     // bigger icon
-    buttonName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25, forState: .Normal, iconSize: 30)
-
+    buttonName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal, iconSize: 30)
 
     // change a color:
-    buttonName.setFATitleColor(UIColor.redColor(), forState: .Normal))
+    buttonName.setFATitleColor(color: .red, forState: .normal))
 ```
+
 
 ### UIBarButtonItem
 ```Swift
     // Standard font size
-    barName.FAIcon = FAType.FAGithub
+    barName.FAIcon = .FAGithub
 
     // Custom font size
-    barName.setFAIcon(FAType.FAGithub, iconSize: 35)
+    barName.setFAIcon(icon: .FAGithub, iconSize: 35)
 
-    barName.setFAText(prefixText: "follow me on ", icon: FAType.FATwitter, postfixText: ". Thanks!", size: 25)
+    barName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25)
 
-
-    barName.tintColor = UIColor.redColor()
+    barName.tintColor = .red
 
 ```
+
+
 ### UISegmentedControl
 ```Swift
 
-  segmentedControl.setFAIcon(FAType.FATwitter, forSegmentAtIndex: 0)
+  segmentedControl.setFAIcon(icon: .FATwitter, forSegmentAtIndex: 0)
 ```
 
 ### UITabbarItem
 ```Swift
-  tabBarController?.tabBar.items?.first?.setFAIcon(FAType.FATwitter)
+  tabBarController?.tabBar.items?.first?.setFAIcon(.FATwitter)
+  
+  // Options to change selected and unselected color
+  tabBarItem.setFAIcon(icon: .FATwitter, size: nil, textColor: .red, backgroundColor: .black, selectedTextColor: .yellow, selectedBackgroundColor: .white)
+  
+  // Options to change selected and unselected color with specific size
+  tabBarItem.setFAIcon(icon: .FATwitter, size: CGSize(width: 35, height: 35), textColor: .red, backgroundColor: .black, selectedTextColor: .yellow, selectedBackgroundColor: .white)
+  
 ```
+
 
 ### UISlider
 ```Swift
   // change minimum or maximum value image
-  slider.setFAMinimumValueImage(.FABellSlashO)
-  slider.setFAMaximumValueImage(.FABellO)
+  slider.setFAMinimumValueImage(icon: .FABellSlashO)
+  slider.setFAMaximumValueImage(icon: .FABellO)
 
   // change minimum or maximum value image with a specific size
-  slider.setFAMinimumValueImage(.FABellSlashO, customSize:  CGSizeMake(35, 35))
-  slider.setFAMaximumValueImage(.FABellO, customSize:  CGSizeMake(35, 35))
+  slider.setFAMinimumValueImage(icon: .FABellSlashO, customSize:  CGSize(width: 35, height: 35))
+  slider.setFAMaximumValueImage(icon: .FABellO, customSize:  CGSize(width: 35, height: 35))
 ```
+
 
 ### UIViewController
 ```Swift
   // change navigation title
-  FATitle = FAType.FATwitter
+  FATitle = .FATwitter
 ```
 
 
