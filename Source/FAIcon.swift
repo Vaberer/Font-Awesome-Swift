@@ -219,6 +219,31 @@ public extension UISegmentedControl {
 }
 
 
+public extension UIStepper {
+    
+    public func setFABackgroundImage(icon: FAType, forState state: UIControlState) {
+        FontLoader.loadFontIfNeeded()
+        let backgroundSize = CGSize(width: 47, height: 29)
+        let image = UIImage(icon: icon, size: backgroundSize)
+        setBackgroundImage(image, for: state)
+    }
+    
+    public func setFAIncrementImage(icon: FAType, forState state: UIControlState) {
+        FontLoader.loadFontIfNeeded()
+        let incrementSize = CGSize(width: 16, height: 16)
+        let image = UIImage(icon: icon, size: incrementSize)
+        setIncrementImage(image, for: state)
+    }
+    
+    public func setFADecrementImage(icon: FAType, forState state: UIControlState) {
+        FontLoader.loadFontIfNeeded()
+        let decrementSize = CGSize(width: 16, height: 16)
+        let image = UIImage(icon: icon, size: decrementSize)
+        setDecrementImage(image, for: state)
+    }
+}
+
+
 public extension UIImage {
     
     public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
