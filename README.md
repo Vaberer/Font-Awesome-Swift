@@ -8,7 +8,7 @@ I like &#9733;. Do not forget to &#9733; this super convenient library.
 #There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
-##Added ```UISegmentedControl``` & ```UITabbarItem``` & ```UISlider``` & ```UIStepper``` support!
+##Added ```UISegmentedControl``` & ```UITabbarItem``` & ```UISlider``` & ```UIStepper``` & ```UITextField``` support!
 
 
 ###Updated to Font Awesome 4.7 - Added 41 new icons!
@@ -155,11 +155,25 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 ```
 
 
+### UITextField
+```Swift
+
+    //Right View Icon
+    textfield.setRightViewFAIcon(icon: .FASearch, rightViewMode: .always, textColor: .red, backgroundColor: .clear, size: nil)
+
+    //Left View Icon
+    textfield.setLeftViewFAIcon(icon: .FAPlus, leftViewMode: .always, textColor: .red, backgroundColor: .clear, size: nil)
+
+
+```
+
+
 ### UISegmentedControl
 ```Swift
 
   segmentedControl.setFAIcon(icon: .FATwitter, forSegmentAtIndex: 0)
 ```
+
 
 ### UIStepper
 ```Swift
@@ -169,6 +183,7 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
     stepper.setFADecrementImage(icon: .FABellSlashO, forState: .normal)
 
 ```
+
 
 ### UITabbarItem
 ```Swift
