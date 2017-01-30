@@ -8,10 +8,10 @@ I like &#9733;. Do not forget to &#9733; this super convenient library.
 #There is also a very popular [Google Design Material Icons](https://github.com/Vaberer/Google-Material-Design-Icons-Swift) library which you will love!
 
 
-##Added ```UISegmentedControl``` & ```UITabbarItem``` & ```UISlider``` support!
+##Added ```UISegmentedControl``` & ```UITabbarItem``` & ```UISlider``` & ```UIStepper``` support!
 
 
-###Updated to Font Awesome 4.6.3 - Added 30 new icons!
+###Updated to Font Awesome 4.7 - Added 41 new icons!
 
 
 Font Awesome swift library for iOS. No image icons any more. Using Font Awesome Swift library is very easy to use. Look at the demo app which shows all icons and their names or just visit [FontAwesome](http://fortawesome.github.io/Font-Awesome/icons/).
@@ -45,7 +45,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.5.3'
+pod 'Font-Awesome-Swift', '~> 1.6.0'
 ```
 
 Then, run the following command:
@@ -164,9 +164,9 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 ### UIStepper
 ```Swift
 
-  stepper.setFABackgroundImage(FAType.FAGithub, forState: .normal)
-  stepper.setFAIncrementImage(FAType.FABellSlashO, forState: .highlighted)
-  stepper.setFADecrementImage(FAType.FABellO, forState: .disabled)
+    stepper.setFABackgroundImage(icon: .FAGithub, forState: .normal)
+    stepper.setFAIncrementImage(icon: .FABellO, forState: .normal)
+    stepper.setFADecrementImage(icon: .FABellSlashO, forState: .normal)
 
 ```
 
