@@ -135,6 +135,15 @@ Super easy way how to add an icon.
   segmentedControl.setFAIcon(FAType.FATwitter, forSegmentAtIndex: 0)
 ```
 
+### UIStepper
+```Swift
+
+  stepper.setFABackgroundImage(FAType.FAGithub, forState: .normal)
+  stepper.setFAIncrementImage(FAType.FABellSlashO, forState: .highlighted)
+  stepper.setFADecrementImage(FAType.FABellO, forState: .disabled)
+
+```
+
 ### UITabbarItem
 ```Swift
   tabBarController?.tabBar.items?.first?.setFAIcon(FAType.FATwitter)
