@@ -1,6 +1,29 @@
 import Foundation
 import UIKit
 
+public extension UITextField {
+    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextFieldViewMode = .always, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+        FontLoader.loadFontIfNeeded()
+        
+        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), textColor: textColor, backgroundColor: backgroundColor)
+        let imageView = UIImageView.init(image: image)
+        
+        self.rightView = imageView
+        self.rightViewMode = rightViewMode
+    }
+    
+    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextFieldViewMode = .always, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+        FontLoader.loadFontIfNeeded()
+        
+        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), textColor: textColor, backgroundColor: backgroundColor)
+        let imageView = UIImageView.init(image: image)
+        
+        self.leftView = imageView
+        self.leftViewMode = leftViewMode
+    }
+
+}
+
 public extension UIBarButtonItem {
     
     /**
