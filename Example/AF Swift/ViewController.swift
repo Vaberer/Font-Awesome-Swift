@@ -16,19 +16,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var filteredData = [String]()
     var resultSearchController = UISearchController()
     
-    @IBOutlet weak var l: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        b.isHidden = true
-        b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
-        b.setFATitleColor(color: UIColor.red)
-
-        l.isHidden = true
-        l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, iconSize: 20)
-        l.setFAColor(color: UIColor.red)
-
+//        b.isHidden = true
+//        b.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
+//        b.setFATitleColor(color: UIColor.red)
+//        
+//        l.isHidden = true
+//        l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: " postfix", size: 30, iconSize: 20)
+//        l.setFAColor(color: UIColor.red)
         
         self.resultSearchController = ({
             let controller = UISearchController(searchResultsController: nil)
@@ -48,58 +44,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     
-    @IBAction func bPressed(sender: AnyObject) {
-        
-        l.setFAText(prefixText: "prefix ", icon: .FATwitter, postfixText: "", size: 30, iconSize: 20)
-        l.setFAColor(color: UIColor.green)
-//        l.FAIcon = .FATwitter
-        
-
-        b.setFAText(prefixText: "", icon: .FATwitter, postfixText: " postfix", size: 30, forState: .normal, iconSize: 20)
-        b.setFATitleColor(color: UIColor.green)
-
-//        b.setFAIcon(.FATwitter, forState: .Normal)
-        
-
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        
-    }
-    
-    @IBOutlet weak var b: UIButton!
     //MARK: UITableView
-    
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let c = tableView.dequeueReusableCell(withIdentifier: "IconCell") as! IconCell
-        
         c.lFont.text = resultSearchController.isActive ? filteredData[indexPath.row] : helper[indexPath.row]
         
-        let icon = resultSearchController.isActive ? FAType(rawValue: helper.index(of: filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row)
+        guard let icon = resultSearchController.isActive ? FAType(rawValue: helper.index(of: filteredData[indexPath.row])!) : FAType(rawValue: indexPath.row) else { return UITableViewCell() }
         c.lSmall.FAIcon = icon
         c.lMedium.FAIcon = icon
         c.lBig.FAIcon = icon
-        c.iIcon.setFAIconWithName(icon: icon!, textColor: UIColor.black)
+        c.iIcon.setFAIconWithName(icon: icon, textColor: UIColor.black)
         return c
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return resultSearchController.isActive ? filteredData.count :  FAType.count
     }
     
     
     // MARK: Search
-    
-    
-    func updateSearchResults(for searchController: UISearchController)
-    {
+    func updateSearchResults(for searchController: UISearchController) {
         filteredData = []
         filterContentForSearchText(searchText: searchController.searchBar.text!.lowercased())
         self.tableView.reloadData()
@@ -107,7 +72,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBAction func bGithubPressed(sender: UIBarButtonItem) {
-        
         if let requestUrl = NSURL(string: "https://github.com/Vaberer/Font-Awesome-Swift") {
             UIApplication.shared.openURL(requestUrl as URL)
         }
@@ -115,14 +79,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     @IBAction func bTwitterPressed(sender: UIBarButtonItem) {
-        
         if let twitterURL = NSURL(string: "twitter://user?id=2271666416") {
-            
             if UIApplication.shared.canOpenURL(twitterURL as URL) {
-                
                 UIApplication.shared.openURL(twitterURL as URL)
-            } else if let requestUrl = NSURL(string: "https://twitter.com/vaberer") {
                 
+            } else if let requestUrl = NSURL(string: "https://twitter.com/vaberer") {
                 UIApplication.shared.openURL(requestUrl as URL)
             }
         }
@@ -133,7 +94,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func filterContentForSearchText(searchText: String) {
         for f in helper {
             if f.lowercased().range(of: searchText.lowercased()) != nil {
-                
                 filteredData.append(f)
             }
         }
