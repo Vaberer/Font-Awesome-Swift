@@ -8,16 +8,15 @@
 
 import UIKit
 
-
 class MoreExamples: UIViewController {
-
     
     @IBOutlet weak var stepper: UIStepper!
     @IBOutlet weak var image1: UIImageView!
     @IBOutlet weak var image2: UIImageView!
-    
-    
     @IBOutlet weak var button1: UIButton!
+    @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var slider: UISlider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,18 +25,14 @@ class MoreExamples: UIViewController {
         stepper.setFADecrementImage(icon: .FABellSlashO, forState: .normal)
         
         image1.image = UIImage.init(bgIcon: .FASquare, bgTextColor: .black, topIcon: .FATerminal, topTextColor: .white, bgLarge: true, size: CGSize(width: 50, height: 50))
-        
         image2.image = UIImage.init(bgIcon: .FABan, bgTextColor: .red, topIcon: .FACamera, topTextColor: .black,size: CGSize(width: 50, height: 50))
         
-//        button1.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal, iconSize: 30)
+        button1.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal, iconSize: 30)
         
+        textField.setRightViewFAIcon(icon: .FASearch, rightViewMode: .always, textColor: .black, backgroundColor: .clear, size: nil)
+        textField.setLeftViewFAIcon(icon: .FAPlus, leftViewMode: .always, textColor: .black, backgroundColor: .clear, size: nil)
         
-        button1.setFAText(prefixText: "Hello", icon: .FAGithub, postfixText: " ad ", size: nil, forState: .normal)
-        button1.setFATitleColor(color: .blue)
-
-        
+        slider.setFAMinimumValueImage(icon: .FABellSlashO)
+        slider.setFAMaximumValueImage(icon: .FABellO)
     }
-
-
-
 }

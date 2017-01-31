@@ -2,6 +2,7 @@ import Foundation
 import UIKit
 
 public extension UITextField {
+    
     public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextFieldViewMode = .always, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
         
@@ -21,7 +22,6 @@ public extension UITextField {
         self.leftView = imageView
         self.leftViewMode = leftViewMode
     }
-
 }
 
 public extension UIBarButtonItem {
@@ -204,7 +204,6 @@ public extension UILabel {
         
         attributedText = prefixTextAttribured
     }
-    
 }
 
 
@@ -372,7 +371,6 @@ public extension UIViewController {
 
 
 private struct FAStruct {
-    
     static let FontName = "FontAwesome"
     static let ErrorAnnounce = "****** FONT AWESOME SWIFT - FontAwesome font not found in the bundle or not associated with Info.plist when manual installation was performed. ******"
 }
@@ -405,11 +403,9 @@ private class FontLoader {
                     let nsError = error!.takeUnretainedValue() as AnyObject as! NSError
                     NSException(name: NSExceptionName.internalInconsistencyException, reason: errorDescription as String, userInfo: [NSUnderlyingErrorKey: nsError]).raise()
                 }
-
         }
     }
 }
-
 
 /**
  List of all icons in Font Awesome
@@ -417,13 +413,10 @@ private class FontLoader {
 public enum FAType: Int {
     
     static var count: Int {
-        
         return FAIcons.count
     }
     
-    
     public var text: String? {
-        
         return FAIcons[rawValue]
     }
     

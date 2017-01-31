@@ -188,28 +188,47 @@
                                     <constraint firstAttribute="width" secondItem="yJi-UW-ssV" secondAttribute="height" multiplier="1:1" id="OI0-LN-moW"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mv-VO-zZe">
-                                <rect key="frame" x="16" y="167" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2eK-oG-iSs">
-                                <rect key="frame" x="85" y="109" width="50" height="50"/>
+                                <rect key="frame" x="76" y="109" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="2eK-oG-iSs" secondAttribute="height" multiplier="1:1" id="FjP-eL-Etf"/>
                                     <constraint firstAttribute="width" constant="50" id="cFx-DW-DmH"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Mv-VO-zZe">
+                                <rect key="frame" x="16" y="167" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search by..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="odI-lt-4ca">
+                                <rect key="frame" x="16" y="205" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="OiX-T7-AfG"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="5f9-vo-NXt">
+                                <rect key="frame" x="14" y="243" width="254" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="u8P-fi-Ih4"/>
+                                </constraints>
+                            </slider>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="1Mv-VO-zZe" secondAttribute="leading" id="1CL-fC-cYj"/>
-                            <constraint firstItem="1Mv-VO-zZe" firstAttribute="top" secondItem="yJi-UW-ssV" secondAttribute="bottom" constant="8" id="9hm-Zw-Jbt"/>
-                            <constraint firstItem="0hc-46-aVm" firstAttribute="top" secondItem="SBe-K8-ajz" secondAttribute="bottom" constant="8" id="EQy-9P-6g2"/>
+                            <constraint firstItem="1Mv-VO-zZe" firstAttribute="top" secondItem="yJi-UW-ssV" secondAttribute="bottom" constant="8" symbolic="YES" id="9hm-Zw-Jbt"/>
+                            <constraint firstItem="0hc-46-aVm" firstAttribute="top" secondItem="SBe-K8-ajz" secondAttribute="bottom" constant="8" symbolic="YES" id="EQy-9P-6g2"/>
                             <constraint firstItem="yJi-UW-ssV" firstAttribute="centerY" secondItem="2eK-oG-iSs" secondAttribute="centerY" id="HAN-hv-Ug8"/>
                             <constraint firstAttribute="leadingMargin" secondItem="0hc-46-aVm" secondAttribute="leading" id="QaV-51-a8s"/>
                             <constraint firstAttribute="leadingMargin" secondItem="yJi-UW-ssV" secondAttribute="leading" id="cBq-xL-PxV"/>
-                            <constraint firstItem="yJi-UW-ssV" firstAttribute="top" secondItem="0hc-46-aVm" secondAttribute="bottom" constant="8" id="nMj-LY-VRy"/>
-                            <constraint firstItem="2eK-oG-iSs" firstAttribute="leading" secondItem="yJi-UW-ssV" secondAttribute="trailing" constant="19" id="uiA-uI-J52"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5f9-vo-NXt" secondAttribute="leading" id="eHk-h5-4Aj"/>
+                            <constraint firstItem="5f9-vo-NXt" firstAttribute="top" secondItem="odI-lt-4ca" secondAttribute="bottom" constant="8" symbolic="YES" id="fup-er-5kA"/>
+                            <constraint firstItem="odI-lt-4ca" firstAttribute="top" secondItem="1Mv-VO-zZe" secondAttribute="bottom" constant="8" symbolic="YES" id="jAd-e9-c6M"/>
+                            <constraint firstItem="yJi-UW-ssV" firstAttribute="top" secondItem="0hc-46-aVm" secondAttribute="bottom" constant="8" symbolic="YES" id="nMj-LY-VRy"/>
+                            <constraint firstItem="2eK-oG-iSs" firstAttribute="leading" secondItem="yJi-UW-ssV" secondAttribute="trailing" constant="10" id="uiA-uI-J52"/>
+                            <constraint firstItem="odI-lt-4ca" firstAttribute="leading" secondItem="F0a-E4-8Nz" secondAttribute="leadingMargin" id="xgf-H7-ZPG"/>
                             <constraint firstItem="2eK-oG-iSs" firstAttribute="width" secondItem="2eK-oG-iSs" secondAttribute="height" multiplier="1:1" id="yIe-VV-SUj"/>
                         </constraints>
                     </view>
@@ -217,7 +236,9 @@
                         <outlet property="button1" destination="1Mv-VO-zZe" id="9fr-0e-HVT"/>
                         <outlet property="image1" destination="yJi-UW-ssV" id="GhQ-8M-fkn"/>
                         <outlet property="image2" destination="2eK-oG-iSs" id="I7A-u3-OEX"/>
+                        <outlet property="slider" destination="5f9-vo-NXt" id="s9R-To-EgU"/>
                         <outlet property="stepper" destination="0hc-46-aVm" id="OsU-f8-JuY"/>
+                        <outlet property="textField" destination="odI-lt-4ca" id="FUD-JH-Nj0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yy7-TO-ToU" userLabel="First Responder" sceneMemberID="firstResponder"/>
