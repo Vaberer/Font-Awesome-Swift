@@ -75,10 +75,7 @@ Super easy way how to add an icon.
 
 
 ### UIImage
-
-
 For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/#stacked)
-
 ```Swift
     UIImage.init(icon: .FATwitter, size: CGSize(width: 35, height: 35))
     
@@ -115,11 +112,11 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 
     labelName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25)
 
-    // bigger icon:
+    // Bigger icon:
     labelName.setFAText(prefixText: "follow me on  ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, iconSize: 30)
 
     labelName.setFAColor(.red)
-
+    
 ```
 
 
@@ -127,16 +124,17 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 ```Swift
     buttonName.setFAIcon(icon: .FAGithub, forState: .normal)
 
-    // set an icon size
+    // Set icon size
     buttonName.setFAIcon(icon: .FAGithub, iconSize: 35, forState: .normal)
 
     buttonName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal)
 
-    // bigger icon
+    // Bigger icon
     buttonName.setFAText(prefixText: "follow me on ", icon: .FATwitter, postfixText: ". Thanks!", size: 25, forState: .normal, iconSize: 30)
 
-    // change a color:
+    // Change color:
     buttonName.setFATitleColor(color: .red, forState: .normal))
+    
 ```
 
 
@@ -157,30 +155,28 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 
 ### UITextField
 ```Swift
-
-    //Right View Icon
+    // Right View Icon
     textfield.setRightViewFAIcon(icon: .FASearch, rightViewMode: .always, textColor: .red, backgroundColor: .clear, size: nil)
 
-    //Left View Icon
+    // Left View Icon
     textfield.setLeftViewFAIcon(icon: .FAPlus, leftViewMode: .always, textColor: .red, backgroundColor: .clear, size: nil)
-
 
 ```
 
 
 ### UISegmentedControl
 ```Swift
-
   segmentedControl.setFAIcon(icon: .FATwitter, forSegmentAtIndex: 0)
+  
 ```
 
 
 ### UIStepper
 ```Swift
-
     stepper.setFABackgroundImage(icon: .FAGithub, forState: .normal)
     stepper.setFAIncrementImage(icon: .FABellO, forState: .normal)
     stepper.setFADecrementImage(icon: .FABellSlashO, forState: .normal)
+    
 
 ```
 
@@ -200,20 +196,22 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 
 ### UISlider
 ```Swift
-  // change minimum or maximum value image
+  // Change minimum or maximum value image
   slider.setFAMinimumValueImage(icon: .FABellSlashO)
   slider.setFAMaximumValueImage(icon: .FABellO)
 
   // change minimum or maximum value image with a specific size
   slider.setFAMinimumValueImage(icon: .FABellSlashO, customSize:  CGSize(width: 35, height: 35))
   slider.setFAMaximumValueImage(icon: .FABellO, customSize:  CGSize(width: 35, height: 35))
+  
 ```
 
 
 ### UIViewController
 ```Swift
-  // change navigation title
+  // Change navigation title
   FATitle = .FATwitter
+  
 ```
 
 
