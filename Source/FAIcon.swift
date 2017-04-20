@@ -110,17 +110,26 @@ public extension UIButton {
         } else if let f = endFont , f.fontName != FAStruct.FontName  {
             textFont = f
         }
-        let textAttribute = [NSFontAttributeName:textFont!]
-        let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttribute)
+        
+        var textColor: UIColor = .black
+        attributedText.enumerateAttribute(NSForegroundColorAttributeName, in:NSMakeRange(0,attributedText.length), options:.longestEffectiveRangeNotRequired) {
+            value, range, stop in
+            if value != nil {
+                textColor = value as! UIColor
+            }
+        }
+
+        let textAttributes = [NSFontAttributeName: textFont!, NSForegroundColorAttributeName: textColor] as [String : Any]
+        let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttributes)
         
         if let iconText = icon?.text {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
-            let iconAttribute = [NSFontAttributeName:iconFont]
-            
-            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+            let iconAttributes = [NSFontAttributeName: iconFont, NSForegroundColorAttributeName: textColor] as [String : Any]
+
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttributes)
             prefixTextAttribured.append(iconString)
         }
-        let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: textAttribute)
+        let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: textAttributes)
         prefixTextAttribured.append(postfixTextAttributed)
         
         setAttributedTitle(prefixTextAttribured, for: state)
@@ -130,7 +139,8 @@ public extension UIButton {
     func setFATitleColor(color: UIColor, forState state: UIControlState = .normal) {
         FontLoader.loadFontIfNeeded()
  
-        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString())
+        let emptyString = " "
+        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString(string: emptyString))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attributedString.length))
        
         setAttributedTitle(attributedString, for: state)
