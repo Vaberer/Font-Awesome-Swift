@@ -3,20 +3,20 @@ import UIKit
 
 public extension UITextField {
     
-    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextFieldViewMode = .always, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextFieldViewMode = .always, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
         
-        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), textColor: textColor, backgroundColor: backgroundColor)
+        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
         let imageView = UIImageView.init(image: image)
         
         self.rightView = imageView
         self.rightViewMode = rightViewMode
     }
     
-    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextFieldViewMode = .always, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextFieldViewMode = .always, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
         
-        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), textColor: textColor, backgroundColor: backgroundColor)
+        let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
         let imageView = UIImageView.init(image: image)
         
         self.leftView = imageView
@@ -213,20 +213,20 @@ public extension UIImageView {
     /**
      Create UIImage from FAType
      */
-    public func setFAIconWithName(icon: FAType, textColor: UIColor, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, orientation: UIImageOrientation = UIImageOrientation.down, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
-        self.image = UIImage(icon: icon, size: size ?? frame.size, textColor: textColor, backgroundColor: backgroundColor)
+        self.image = UIImage(icon: icon, size: size ?? frame.size, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
     }
 }
 
 
 public extension UITabBarItem {
     
-    public func setFAIcon(icon: FAType, size: CGSize? = nil, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
+    public func setFAIcon(icon: FAType, size: CGSize? = nil, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let tabBarItemImageSize = size ?? CGSize(width: 30, height: 30)
-        image = UIImage(icon: icon, size: tabBarItemImageSize, textColor: textColor, backgroundColor: backgroundColor)
-        selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor)
+        image = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
+        selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor)
     }
 }
 
@@ -285,6 +285,7 @@ public extension UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
         attributedString.draw(in: CGRect(x: 0, y: (size.height - fontSize) * 0.5, width: size.width, height: fontSize))
         let image = UIGraphicsGetImageFromCurrentImageContext()
+        
         UIGraphicsEndImageContext()
         if let image = image {
             var imageOrientation = image.imageOrientation
@@ -300,7 +301,7 @@ public extension UIImage {
         }
     }
     
-    public convenience init(bgIcon: FAType, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
+    public convenience init(bgIcon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
         
         let bgSize: CGSize!
         let topSize: CGSize!
@@ -317,8 +318,8 @@ public extension UIImage {
             topSize = CGSize(width: 2 * bgSize.width, height: 2 * bgSize.height)
         }
         
-        let bgImage = UIImage.init(icon: bgIcon, size: bgSize, textColor: bgTextColor)
-        let topImage = UIImage.init(icon: topIcon, size: topSize, textColor: topTextColor)
+        let bgImage = UIImage.init(icon: bgIcon, size: bgSize, orientation: orientation, textColor: bgTextColor)
+        let topImage = UIImage.init(icon: topIcon, size: topSize, orientation: orientation, textColor: topTextColor)
         
         if bgLarge! {
             bgRect = CGRect(x: 0, y: 0, width: bgSize.width, height: bgSize.height)
@@ -338,7 +339,13 @@ public extension UIImage {
         UIGraphicsEndImageContext()
         
         if let image = image {
-            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: image.imageOrientation)
+            var imageOrientation = image.imageOrientation
+            
+            if(orientation != UIImageOrientation.down){
+                imageOrientation = orientation
+            }
+            
+            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: orientation)
         } else {
             self.init()
         }
@@ -348,13 +355,13 @@ public extension UIImage {
 
 public extension UISlider {
     
-    func setFAMaximumValueImage(icon: FAType, customSize: CGSize? = nil) {
-        maximumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25))
+    func setFAMaximumValueImage(icon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, customSize: CGSize? = nil) {
+        maximumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25), orientation: orientation)
     }
     
     
-    func setFAMinimumValueImage(icon: FAType, customSize: CGSize? = nil) {
-        minimumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25))
+    func setFAMinimumValueImage(icon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, customSize: CGSize? = nil) {
+        minimumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25), orientation: orientation)
     }
 }
 
