@@ -270,7 +270,7 @@ public extension UIStepper {
 
 public extension UIImage {
     
-    public convenience init(icon: FAType, size: CGSize, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
+    public convenience init(icon: FAType, size: CGSize, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.center
@@ -287,7 +287,13 @@ public extension UIImage {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         if let image = image {
-            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: image.imageOrientation)
+            var imageOrientation = image.imageOrientation
+            
+            if(orientation != UIImageOrientation.down){
+                imageOrientation = orientation
+            }
+            
+            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: imageOrientation)
 //            self(cgImage: image.cgImage!, scale: image.scale, orientation: image.imageOrientation)
         } else {
             self.init()
