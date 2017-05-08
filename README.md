@@ -221,7 +221,7 @@ Patrik Vaberer, patrik@toptal.com
 
 - [LinkedIn](https://sk.linkedin.com/in/vaberer)
 - [@vaberer](https://twitter.com/vaberer)
-- [Blog](http://vaberer.me)
+- [Blog](http://vaberer.com)
 
 ### Licence
 
