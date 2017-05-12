@@ -139,8 +139,7 @@ public extension UIButton {
     func setFATitleColor(color: UIColor, forState state: UIControlState = .normal) {
         FontLoader.loadFontIfNeeded()
  
-        let emptyString = " "
-        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString(string: emptyString))
+        let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString())
         attributedString.addAttribute(NSForegroundColorAttributeName, value: color, range: NSMakeRange(0, attributedString.length))
        
         setAttributedTitle(attributedString, for: state)
