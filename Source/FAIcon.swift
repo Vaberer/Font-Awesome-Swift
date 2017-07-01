@@ -359,7 +359,7 @@ public extension UIImage {
                 imageOrientation = orientation
             }
             
-            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: orientation)
+            self.init(cgImage: image.cgImage!, scale: image.scale, orientation: imageOrientation)
         } else {
             self.init()
         }
