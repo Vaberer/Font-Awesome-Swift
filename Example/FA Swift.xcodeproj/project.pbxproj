@@ -10,6 +10,7 @@
 		4E00AD5D1B5EBE6D0042DCD5 /* FAIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E00AD5B1B5EBE6D0042DCD5 /* FAIcon.swift */; };
 		4E00AD5E1B5EBE6D0042DCD5 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4E00AD5C1B5EBE6D0042DCD5 /* FontAwesome.ttf */; };
 		4E67E1AD1E3F5CA40062CB50 /* MoreExamples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E67E1AC1E3F5CA40062CB50 /* MoreExamples.swift */; };
+		4E8940111F5AC211006BB211 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8940101F5AC211006BB211 /* Helper.swift */; };
 		4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */; };
 		4EFFFACA1B53D5D7003CD25A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EFFFAC91B53D5D7003CD25A /* ViewController.swift */; };
 		4EFFFACD1B53D5D7003CD25A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4EFFFACB1B53D5D7003CD25A /* Main.storyboard */; };
@@ -33,6 +34,7 @@
 		4E00AD5B1B5EBE6D0042DCD5 /* FAIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAIcon.swift; sourceTree = "<group>"; };
 		4E00AD5C1B5EBE6D0042DCD5 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
 		4E67E1AC1E3F5CA40062CB50 /* MoreExamples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreExamples.swift; sourceTree = "<group>"; };
+		4E8940101F5AC211006BB211 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		4EFFFAC21B53D5D7003CD25A /* FA Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FA Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EFFFAC61B53D5D7003CD25A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4EFFFAC71B53D5D7003CD25A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				4E67E1AC1E3F5CA40062CB50 /* MoreExamples.swift */,
 				4EFFFAF61B550DBD003CD25A /* IconCell.swift */,
 				4EFFFAC51B53D5D7003CD25A /* Supporting Files */,
+				4E8940101F5AC211006BB211 /* Helper.swift */,
 			);
 			name = "FA Swift";
 			path = "AF Swift";
@@ -243,6 +246,7 @@
 				4EFFFAF71B550DBD003CD25A /* IconCell.swift in Sources */,
 				4EFFFAC81B53D5D7003CD25A /* AppDelegate.swift in Sources */,
 				4E00AD5D1B5EBE6D0042DCD5 /* FAIcon.swift in Sources */,
+				4E8940111F5AC211006BB211 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
