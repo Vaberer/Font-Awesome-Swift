@@ -116,12 +116,12 @@ public extension UIButton {
             }
         }
         
-        let textAttributes = [NSAttributedStringKey.font.rawValue: textFont!, NSAttributedStringKey.foregroundColor: textColor] as! [NSAttributedStringKey : Any]
+        let textAttributes = [NSAttributedStringKey.font: textFont!, NSAttributedStringKey.foregroundColor: textColor] as [NSAttributedStringKey : Any]
         let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttributes)
         
         if let iconText = icon?.text {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
-            let iconAttributes = [NSAttributedStringKey.font.rawValue: iconFont, NSAttributedStringKey.foregroundColor: textColor] as! [NSAttributedStringKey : Any]
+            let iconAttributes = [NSAttributedStringKey.font: iconFont, NSAttributedStringKey.foregroundColor: textColor] as [NSAttributedStringKey : Any]
             
             let iconString = NSAttributedString(string: iconText, attributes: iconAttributes)
             prefixTextAttribured.append(iconString)
