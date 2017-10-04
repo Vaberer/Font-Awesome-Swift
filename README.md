@@ -39,7 +39,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'Font-Awesome-Swift', '~> 1.6.4'
+pod 'Font-Awesome-Swift', '~> 1.7.0'
 ```
 
 Then, run the following command:
@@ -52,7 +52,7 @@ Do not forget to import to your swift files where you want to use this library:
 import Font_Awesome_Swift
 ```
 
-Check branches `swift-2.2` and `swift-2.3`
+Check branches `swift-2.2`, `swift-2.3` or `swift-3`
 
 ### Manually
 
@@ -213,7 +213,7 @@ For Stacked images, please refer [Stacked Icons](http://fontawesome.io/examples/
 
 Patrik Vaberer, patrik@toptal.com
 
-- [LinkedIn](https://sk.linkedin.com/in/vaberer)
+- [LinkedIn](https://www.linkedin.com/in/vaberer)
 - [@vaberer](https://twitter.com/vaberer)
 - [Blog](http://vaberer.com)
 
