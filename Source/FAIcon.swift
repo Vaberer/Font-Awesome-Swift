@@ -34,6 +34,7 @@ public extension UIBarButtonItem {
         let font = UIFont(name: FAStruct.FontName, size: iconSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
         title = icon.text
     }
     

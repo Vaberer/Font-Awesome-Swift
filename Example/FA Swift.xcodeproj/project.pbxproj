@@ -192,6 +192,7 @@
 					};
 					4EFFFAD61B53D5D8003CD25A = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0900;
 						TestTargetID = 4EFFFAC11B53D5D7003CD25A;
 					};
 				};
