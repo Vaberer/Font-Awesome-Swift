@@ -34,6 +34,8 @@ public extension UIBarButtonItem {
         let font = UIFont(name: FAStruct.FontName, size: iconSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
         title = icon.text
     }
@@ -48,6 +50,8 @@ public extension UIBarButtonItem {
             assert(font != nil,FAStruct.ErrorAnnounce)
             setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
             setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
+            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
+            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
             title = newValue?.text
         }
         get {
@@ -61,6 +65,9 @@ public extension UIBarButtonItem {
         let font = UIFont(name: FAStruct.FontName, size: size)
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
+        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
 
         var text = prefixText
         if let iconText = icon?.text {
