@@ -34,7 +34,6 @@ public extension UIBarButtonItem {
         let font = UIFont(name: FAStruct.FontName, size: iconSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
         title = icon.text
@@ -49,7 +48,6 @@ public extension UIBarButtonItem {
             let font = UIFont(name: FAStruct.FontName, size: 23)
             assert(font != nil,FAStruct.ErrorAnnounce)
             setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
             setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
             setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
             title = newValue?.text
@@ -65,7 +63,6 @@ public extension UIBarButtonItem {
         let font = UIFont(name: FAStruct.FontName, size: size)
         assert(font != nil, FAStruct.ErrorAnnounce)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
         setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
 
@@ -245,7 +242,7 @@ public extension UITabBarItem {
         selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor).withRenderingMode(UIImageRenderingMode.alwaysOriginal)
 
         setTitleTextAttributes([NSAttributedStringKey.foregroundColor: textColor], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedTextColor], for: .selected)
+        setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedTextColor], for: .highlighted)
     }
 }
 
