@@ -215,6 +215,36 @@ public extension UILabel {
 
         attributedText = prefixTextAttribured
     }
+    
+    func setFAText(prefixText: String, prefixTextColor: UIColor, icon: FAType?, iconColor: UIColor, postfixText: String, postfixTextColor: UIColor, size: CGFloat?, iconSize: CGFloat? = nil) {
+        text = nil
+        FontLoader.loadFontIfNeeded()
+        
+        let attrText = attributedText ?? NSAttributedString()
+        let startFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedStringKey.font, at: 0, effectiveRange: nil) as? UIFont
+        let endFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedStringKey.font, at: attrText.length - 1, effectiveRange: nil) as? UIFont
+        var textFont = font
+        if let f = startFont , f.fontName != FAStruct.FontName  {
+            textFont = f
+        } else if let f = endFont , f.fontName != FAStruct.FontName  {
+            textFont = f
+        }
+        let prefixTextAttribute = [NSAttributedStringKey.font : textFont!, NSAttributedStringKey.foregroundColor: prefixTextColor]
+        let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: prefixTextAttribute)
+        
+        if let iconText = icon?.text {
+            let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? font.pointSize)!
+            let iconAttribute = [NSAttributedStringKey.font : iconFont, NSAttributedStringKey.foregroundColor: iconColor]
+            
+            let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
+            prefixTextAttribured.append(iconString)
+        }
+        let postfixTextAttribute = [NSAttributedStringKey.font : textFont!, NSAttributedStringKey.foregroundColor: postfixTextColor]
+        let postfixTextAttributed = NSAttributedString(string: postfixText, attributes: postfixTextAttribute)
+        prefixTextAttribured.append(postfixTextAttributed)
+        
+        attributedText = prefixTextAttribured
+    }
 }
 
 
