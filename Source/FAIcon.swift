@@ -3,7 +3,7 @@ import UIKit
 
 public extension UITextField {
 
-    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextFieldViewMode = .always, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    public func setRightViewFAIcon(icon: FAType, rightViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
 
         let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
@@ -13,7 +13,7 @@ public extension UITextField {
         self.rightViewMode = rightViewMode
     }
 
-    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextFieldViewMode = .always, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
+    public func setLeftViewFAIcon(icon: FAType, leftViewMode: UITextField.ViewMode = .always, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = .black, backgroundColor: UIColor = .clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
 
         let image = UIImage(icon: icon, size: size ?? CGSize(width: 30, height: 30), orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
@@ -33,10 +33,10 @@ public extension UIBarButtonItem {
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: iconSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .selected)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .highlighted)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .disabled)
         title = icon.text
     }
 
@@ -48,10 +48,10 @@ public extension UIBarButtonItem {
             FontLoader.loadFontIfNeeded()
             let font = UIFont(name: FAStruct.FontName, size: 23)
             assert(font != nil,FAStruct.ErrorAnnounce)
-            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
-            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
-            setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
+            setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
+            setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .selected)
+            setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .highlighted)
+            setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .disabled)
             title = newValue?.text
         }
         get {
@@ -64,10 +64,10 @@ public extension UIBarButtonItem {
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: size)
         assert(font != nil, FAStruct.ErrorAnnounce)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .selected)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .highlighted)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .disabled)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .selected)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .highlighted)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .disabled)
 
         var text = prefixText
         if let iconText = icon?.text {
@@ -84,7 +84,7 @@ public extension UIButton {
     /**
      To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, forState: .Normal)`
      */
-    func setFAIcon(icon: FAType, forState state: UIControlState) {
+    func setFAIcon(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         guard let titleLabel = titleLabel else { return }
         setAttributedTitle(nil, for: state)
@@ -97,19 +97,19 @@ public extension UIButton {
     /**
      To set an icon, use i.e. `buttonName.setFAIcon(FAType.FAGithub, iconSize: 35, forState: .Normal)`
      */
-    func setFAIcon(icon: FAType, iconSize: CGFloat, forState state: UIControlState) {
+    func setFAIcon(icon: FAType, iconSize: CGFloat, forState state: UIControl.State) {
         setFAIcon(icon: icon, forState: state)
         guard let fontName = titleLabel?.font.fontName else { return }
         titleLabel?.font = UIFont(name: fontName, size: iconSize)
     }
 
-    func setFAText(prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState state: UIControlState, iconSize: CGFloat? = nil) {
+    func setFAText(prefixText: String, icon: FAType?, postfixText: String, size: CGFloat?, forState state: UIControl.State, iconSize: CGFloat? = nil) {
         setTitle(nil, for: state)
         FontLoader.loadFontIfNeeded()
         guard let titleLabel = titleLabel else { return }
         let attributedText = attributedTitle(for: .normal) ?? NSAttributedString()
-        let  startFont =  attributedText.length == 0 ? nil : attributedText.attribute(NSAttributedStringKey.font, at: 0, effectiveRange: nil) as? UIFont
-        let endFont = attributedText.length == 0 ? nil : attributedText.attribute(NSAttributedStringKey.font, at: attributedText.length - 1, effectiveRange: nil) as? UIFont
+        let  startFont =  attributedText.length == 0 ? nil : attributedText.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
+        let endFont = attributedText.length == 0 ? nil : attributedText.attribute(NSAttributedString.Key.font, at: attributedText.length - 1, effectiveRange: nil) as? UIFont
         var textFont = titleLabel.font
         if let f = startFont , f.fontName != FAStruct.FontName  {
             textFont = f
@@ -120,19 +120,19 @@ public extension UIButton {
             textFont = textFont?.withSize(fontSize)
         }
         var textColor: UIColor = .black
-        attributedText.enumerateAttribute(NSAttributedStringKey.foregroundColor, in:NSMakeRange(0,attributedText.length), options:.longestEffectiveRangeNotRequired) {
+        attributedText.enumerateAttribute(NSAttributedString.Key.foregroundColor, in:NSMakeRange(0,attributedText.length), options:.longestEffectiveRangeNotRequired) {
             value, range, stop in
             if value != nil {
                 textColor = value as! UIColor
             }
         }
 
-        let textAttributes = [NSAttributedStringKey.font: textFont!, NSAttributedStringKey.foregroundColor: textColor] as [NSAttributedStringKey : Any]
+        let textAttributes = [NSAttributedString.Key.font: textFont!, NSAttributedString.Key.foregroundColor: textColor] as [NSAttributedString.Key : Any]
         let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttributes)
 
         if let iconText = icon?.text {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? titleLabel.font.pointSize)!
-            let iconAttributes = [NSAttributedStringKey.font: iconFont, NSAttributedStringKey.foregroundColor: textColor] as [NSAttributedStringKey : Any]
+            let iconAttributes = [NSAttributedString.Key.font: iconFont, NSAttributedString.Key.foregroundColor: textColor] as [NSAttributedString.Key : Any]
 
             let iconString = NSAttributedString(string: iconText, attributes: iconAttributes)
             prefixTextAttribured.append(iconString)
@@ -143,11 +143,11 @@ public extension UIButton {
         setAttributedTitle(prefixTextAttribured, for: state)
     }
 
-    func setFATitleColor(color: UIColor, forState state: UIControlState = .normal) {
+    func setFATitleColor(color: UIColor, forState state: UIControl.State = .normal) {
         FontLoader.loadFontIfNeeded()
 
         let attributedString = NSMutableAttributedString(attributedString: attributedTitle(for: state) ?? NSAttributedString())
-        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: NSMakeRange(0, attributedString.length))
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSMakeRange(0, attributedString.length))
 
         setAttributedTitle(attributedString, for: state)
         setTitleColor(color, for: state)
@@ -186,7 +186,7 @@ public extension UILabel {
     func setFAColor(color: UIColor) {
         FontLoader.loadFontIfNeeded()
         let attributedString = NSMutableAttributedString(attributedString: attributedText ?? NSAttributedString())
-        attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: NSMakeRange(0, attributedText!.length))
+        attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: NSMakeRange(0, attributedText!.length))
         textColor = color
     }
 
@@ -195,20 +195,20 @@ public extension UILabel {
         FontLoader.loadFontIfNeeded()
 
         let attrText = attributedText ?? NSAttributedString()
-        let startFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedStringKey.font, at: 0, effectiveRange: nil) as? UIFont
-        let endFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedStringKey.font, at: attrText.length - 1, effectiveRange: nil) as? UIFont
+        let startFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedString.Key.font, at: 0, effectiveRange: nil) as? UIFont
+        let endFont = attrText.length == 0 ? nil : attrText.attribute(NSAttributedString.Key.font, at: attrText.length - 1, effectiveRange: nil) as? UIFont
         var textFont = font
         if let f = startFont , f.fontName != FAStruct.FontName  {
             textFont = f
         } else if let f = endFont , f.fontName != FAStruct.FontName  {
             textFont = f
         }
-        let textAttribute = [NSAttributedStringKey.font : textFont!]
+        let textAttribute = [NSAttributedString.Key.font : textFont!]
         let prefixTextAttribured = NSMutableAttributedString(string: prefixText, attributes: textAttribute)
 
         if let iconText = icon?.text {
             let iconFont = UIFont(name: FAStruct.FontName, size: iconSize ?? size ?? font.pointSize)!
-            let iconAttribute = [NSAttributedStringKey.font : iconFont]
+            let iconAttribute = [NSAttributedString.Key.font : iconFont]
 
             let iconString = NSAttributedString(string: iconText, attributes: iconAttribute)
             prefixTextAttribured.append(iconString)
@@ -227,7 +227,7 @@ public extension UIImageView {
     /**
      Create UIImage from FAType
      */
-    public func setFAIconWithName(icon: FAType, textColor: UIColor, orientation: UIImageOrientation = UIImageOrientation.down, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
+    public func setFAIconWithName(icon: FAType, textColor: UIColor, orientation: UIImage.Orientation = UIImage.Orientation.down, backgroundColor: UIColor = UIColor.clear, size: CGSize? = nil) {
         FontLoader.loadFontIfNeeded()
         self.image = UIImage(icon: icon, size: size ?? frame.size, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor)
     }
@@ -236,16 +236,16 @@ public extension UIImageView {
 
 public extension UITabBarItem {
 
-    public func setFAIcon(icon: FAType, size: CGSize? = nil, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
+    public func setFAIcon(icon: FAType, size: CGSize? = nil, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear, selectedTextColor: UIColor = UIColor.black, selectedBackgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let tabBarItemImageSize = size ?? CGSize(width: 30, height: 30)
 
-        image = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor).withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        image = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: textColor, backgroundColor: backgroundColor).withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
 
-        selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor).withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        selectedImage = UIImage(icon: icon, size: tabBarItemImageSize, orientation: orientation, textColor: selectedTextColor, backgroundColor: selectedBackgroundColor).withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
 
-        setTitleTextAttributes([NSAttributedStringKey.foregroundColor: textColor], for: .normal)
-        setTitleTextAttributes([NSAttributedStringKey.foregroundColor: selectedTextColor], for: .selected)
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: textColor], for: .normal)
+        setTitleTextAttributes([NSAttributedString.Key.foregroundColor: selectedTextColor], for: .selected)
     }
 }
 
@@ -256,7 +256,7 @@ public extension UISegmentedControl {
         FontLoader.loadFontIfNeeded()
         let font = UIFont(name: FAStruct.FontName, size: 23)
         assert(font != nil, FAStruct.ErrorAnnounce)
-        setTitleTextAttributes([NSAttributedStringKey.font: font!], for: .normal)
+        setTitleTextAttributes([NSAttributedString.Key.font: font!], for: .normal)
         setTitle(icon.text, forSegmentAt: segment)
     }
 }
@@ -264,21 +264,21 @@ public extension UISegmentedControl {
 
 public extension UIStepper {
 
-    public func setFABackgroundImage(icon: FAType, forState state: UIControlState) {
+    public func setFABackgroundImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let backgroundSize = CGSize(width: 47, height: 29)
         let image = UIImage(icon: icon, size: backgroundSize)
         setBackgroundImage(image, for: state)
     }
 
-    public func setFAIncrementImage(icon: FAType, forState state: UIControlState) {
+    public func setFAIncrementImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let incrementSize = CGSize(width: 16, height: 16)
         let image = UIImage(icon: icon, size: incrementSize)
         setIncrementImage(image, for: state)
     }
 
-    public func setFADecrementImage(icon: FAType, forState state: UIControlState) {
+    public func setFADecrementImage(icon: FAType, forState state: UIControl.State) {
         FontLoader.loadFontIfNeeded()
         let decrementSize = CGSize(width: 16, height: 16)
         let image = UIImage(icon: icon, size: decrementSize)
@@ -289,7 +289,7 @@ public extension UIStepper {
 
 public extension UIImage {
 
-    public convenience init(icon: FAType, size: CGSize, orientation: UIImageOrientation = UIImageOrientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
+    public convenience init(icon: FAType, size: CGSize, orientation: UIImage.Orientation = UIImage.Orientation.down, textColor: UIColor = UIColor.black, backgroundColor: UIColor = UIColor.clear) {
         FontLoader.loadFontIfNeeded()
         let paragraph = NSMutableParagraphStyle()
         paragraph.alignment = NSTextAlignment.center
@@ -298,7 +298,7 @@ public extension UIImage {
         let fontSize = min(size.width / fontAspectRatio, size.height)
         let font = UIFont(name: FAStruct.FontName, size: fontSize)
         assert(font != nil, FAStruct.ErrorAnnounce)
-        let attributes = [NSAttributedStringKey.font: font!, NSAttributedStringKey.foregroundColor: textColor, NSAttributedStringKey.backgroundColor: backgroundColor, NSAttributedStringKey.paragraphStyle: paragraph]
+        let attributes = [NSAttributedString.Key.font: font!, NSAttributedString.Key.foregroundColor: textColor, NSAttributedString.Key.backgroundColor: backgroundColor, NSAttributedString.Key.paragraphStyle: paragraph]
 
         let attributedString = NSAttributedString(string: icon.text!, attributes: attributes)
         UIGraphicsBeginImageContextWithOptions(size, false , 0.0)
@@ -309,7 +309,7 @@ public extension UIImage {
         if let image = image {
             var imageOrientation = image.imageOrientation
 
-            if(orientation != UIImageOrientation.down){
+            if(orientation != UIImage.Orientation.down){
                 imageOrientation = orientation
             }
 
@@ -319,7 +319,7 @@ public extension UIImage {
         }
     }
 
-    public convenience init(bgIcon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
+    public convenience init(bgIcon: FAType, orientation: UIImage.Orientation = UIImage.Orientation.down, bgTextColor: UIColor = .black, bgBackgroundColor: UIColor = .clear, topIcon: FAType, topTextColor: UIColor = .black, bgLarge: Bool? = true, size: CGSize? = nil) {
 
         let bgSize: CGSize!
         let topSize: CGSize!
@@ -356,7 +356,7 @@ public extension UIImage {
         if let image = image {
             var imageOrientation = image.imageOrientation
 
-            if(orientation != UIImageOrientation.down){
+            if(orientation != UIImage.Orientation.down){
                 imageOrientation = orientation
             }
 
@@ -370,11 +370,11 @@ public extension UIImage {
 
 public extension UISlider {
 
-    func setFAMaximumValueImage(icon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, customSize: CGSize? = nil) {
+    func setFAMaximumValueImage(icon: FAType, orientation: UIImage.Orientation = UIImage.Orientation.down, customSize: CGSize? = nil) {
         maximumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25), orientation: orientation)
     }
 
-    func setFAMinimumValueImage(icon: FAType, orientation: UIImageOrientation = UIImageOrientation.down, customSize: CGSize? = nil) {
+    func setFAMinimumValueImage(icon: FAType, orientation: UIImage.Orientation = UIImage.Orientation.down, customSize: CGSize? = nil) {
         minimumValueImage = UIImage(icon: icon, size: customSize ?? CGSize(width: 25,height: 25), orientation: orientation)
     }
 }
@@ -385,7 +385,7 @@ public extension UIViewController {
             FontLoader.loadFontIfNeeded()
             let font = UIFont(name: FAStruct.FontName, size: 23)
             assert(font != nil,FAStruct.ErrorAnnounce)
-            navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: font!]
+            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: font!]
             title = newValue?.text
         }
         get {
