@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Font-Awesome-Swift'
-  s.version = '1.7.2'
+  s.version = '1.8.1'
   s.license = 'MIT'
   s.summary = 'Font Awesome swift library for iOS.'
   s.homepage = 'https://github.com/Vaberer/Font-Awesome-Swift'
